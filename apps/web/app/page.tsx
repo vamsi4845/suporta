@@ -1,5 +1,4 @@
 "use client";
-import { Button } from "@workspace/ui/components/button"
 import { useQuery } from "convex/react";
 import { api } from "@workspace/backend/_generated/api";
 
