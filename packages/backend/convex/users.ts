@@ -18,6 +18,13 @@ export const addUser = mutation({
     if (!identity) {
       throw new Error("Unauthorized");
     }
+    const orgId = identity.orgId as string
+
+    if(!orgId) {
+      throw new Error("Organization not found")
+    }
+
+    throw new Error("tracking test")
     const id = await ctx.db.insert("users", { name: args.name });
     return id;
   },
