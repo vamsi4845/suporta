@@ -84,7 +84,7 @@ export function DashboardSidebar(){
                         <SidebarMenu>
                             {supportItems?.map((item) => (
                                 <SidebarMenuItem key={item.title}>
-                                    <SidebarMenuButton asChild  tooltip={item.title} isActive={isActive(item.url)}>
+                                    <SidebarMenuButton asChild  tooltip={item.title} isActive={isActive(item.url)} className={cn(isActive(item.url) && "bg-gradient-to-b from-sidebar-primary to-[#0b63f3]! text-sidebar-primary-foreground! hover:to-[#0b63f3]/90!")}>
                                         <Link href={item.url}>
                                             <item.icon className="size-4" />
                                             <span>{item.title}</span>
@@ -101,7 +101,7 @@ export function DashboardSidebar(){
                         <SidebarMenu>
                             {configItems?.map((item) => (
                                 <SidebarMenuItem key={item.title}>
-                                    <SidebarMenuButton asChild  tooltip={item.title} isActive={isActive(item.url)}>
+                                    <SidebarMenuButton asChild  tooltip={item.title} isActive={isActive(item.url)} className={cn(isActive(item.url) && "bg-gradient-to-b from-sidebar-primary to-[#0b63f3]! text-sidebar-primary-foreground! hover:to-[#0b63f3]/90!")}>
                                         <Link href={item.url}>
                                             <item.icon className="size-4" />
                                             <span>{item.title}</span>
@@ -118,7 +118,7 @@ export function DashboardSidebar(){
                         <SidebarMenu>
                             {accountItems?.map((item) => (
                                 <SidebarMenuItem key={item.title}>
-                                    <SidebarMenuButton asChild  tooltip={item.title} isActive={isActive(item.url)}>
+                                    <SidebarMenuButton asChild  tooltip={item.title} isActive={isActive(item.url)} className={cn(isActive(item.url) && "bg-gradient-to-b from-sidebar-primary to-[#0b63f3]! text-sidebar-primary-foreground! hover:to-[#0b63f3]/90!")}>
                                         <Link href={item.url}>
                                             <item.icon className="size-4" />
                                             <span>{item.title}</span>
