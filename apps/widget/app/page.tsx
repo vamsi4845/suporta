@@ -1,24 +1,28 @@
 "use client";
 import { Button } from "@workspace/ui/components/button"
-import { useQuery, useMutation } from "convex/react"
-import { api } from "@workspace/backend/_generated/api"
+import { useVapi } from "@/modules/hooks/use-vapi";
 
 export default function Page() {
-  const users = useQuery(api.users.getMany);
-  const addUser = useMutation(api.users.addUser);
+  const { isConnected, transcript, isConnecting, isSpeaking, startCall, endCall } = useVapi();
   return (
     <div className="flex items-center justify-center min-h-svh">
       <div className="flex flex-col items-center justify-center gap-4">
         <h1 className="text-2xl font-bold">Hello World</h1>
-        <Button size="sm">Button</Button>
-        {users?.map((user: any) => (
-          <div key={user._id}>{user.name}</div>
-        ))}
+        <p>Is Connected: {isConnected ? "Yes" : "No"}</p>
+        <p>Is Connecting: {isConnecting ? "Yes" : "No"}</p>
+        <p>Is Speaking: {isSpeaking ? "Yes" : "No"}</p>
         <Button size="sm" onClick={() => {
-          addUser({ name: "John Doe" });
-        }}>Add User</Button>
+          startCall();
+        }}>Start Call</Button>
+        <Button size="sm" onClick={() => {
+          endCall();
+        }}>End Call</Button>
+        <div className="flex flex-col gap-2"></div>
+          {transcript.map((message) => (
+            <div key={message.text}>{message.text}</div>
+          ))}
+        </div>
       </div>
-    </div>
   )
 }
  
