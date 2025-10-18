@@ -11,7 +11,7 @@ const clerkClient = createClerkClient({
   secretKey: process.env.CLERK_SECRET_KEY!,
 });
 
-export const validateOrganization = action({
+export const validate = action({
   args: {
     organizationId: v.string(),
   },

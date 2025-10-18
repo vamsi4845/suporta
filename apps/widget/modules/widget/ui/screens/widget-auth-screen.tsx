@@ -30,7 +30,7 @@ export function WidgetAuthScreen() {
     });
 
 
-    const createContactSession = useMutation(api.public.contactSessions.createContactSession);
+    const createContactSession = useMutation(api.public.contactSessions.create);
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
         if(!organizationId) {

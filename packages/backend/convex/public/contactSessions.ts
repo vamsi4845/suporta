@@ -4,7 +4,7 @@ import { v } from "convex/values";
 const SESSION_DURATION_MS = 1000 * 60 * 60 * 24; // 1 day in milliseconds
 
 
-export const createContactSession = mutation({
+export const create = mutation({
   args: {
     name: v.string(),
     email: v.string(),
@@ -33,7 +33,7 @@ export const createContactSession = mutation({
 
 
 
-export const validateContactSession = mutation({
+export const validate = mutation({
   args: {
     contactSessionId: v.id("contactSessions"),
   },

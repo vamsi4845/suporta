@@ -19,8 +19,8 @@ export function WidgetLoadingScreen({organizationId}:{organizationId: string | n
     const setLoadingMessage = useSetAtom(loadingMessageAtom);
     const setScreen = useSetAtom(screenAtom);
     const contactSessionId = useAtomValue(contactSessionIdAtomFamily(organizationId!));
-    const validateOrganization = useAction(api.public.organizations.validateOrganization);
-    const validateContactSession = useMutation(api.public.contactSessions.validateContactSession);
+    const validateOrganization = useAction(api.public.organizations.validate);
+    const validateContactSession = useMutation(api.public.contactSessions.validate);
 
 
     useEffect(() => {
