@@ -10,7 +10,7 @@ export function WidgetFooter() {
                 <HomeIcon className={cn("size-4", screen === "selection" && "text-primary")}/>
             </Button>
             <Button className="h-14 flex-1 rounded-none" size="icon" variant="ghost">
-                <InboxIcon className={cn("size-4", screen === "inbox" && "text-primary")}/>
+                <InboxIcon className={cn("size-4", screen === "selection" && "text-primary")}/>
             </Button>
         </footer>
     )

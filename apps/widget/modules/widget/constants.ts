@@ -10,4 +10,4 @@ export const WIDGET_SCREENS = [
 ] as const;
 
 
-export const CONTACT_SESSION_KEY = "ai-support-bot";
+export const CONTACT_SESSION_KEY = "ai_support_bot";
