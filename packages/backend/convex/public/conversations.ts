@@ -84,7 +84,7 @@ export const getMany = query({
 
       const messages = await supportAgent.listMessages(ctx, {threadId: conversation.threadId, paginationOpts: {cursor: null, numItems: 1}});
       if(messages.page.length > 0) {
-        lastMessage = messages.page[0];
+        lastMessage = messages.page[0] ?? null;
       }
       return {
         _id: conversation._id,
