@@ -8,6 +8,7 @@ import { api } from "@workspace/backend/_generated/api";
 import { contactSessionIdAtomFamily, conversationIdAtom, errorMessageAtom, organizationIdAtom, screenAtom } from "@/modules/widget/atoms/widget-atoms";
 import { useAtomValue, useSetAtom } from "jotai";
 import { useState } from "react";
+import { WidgetFooter } from "@/modules/widget/ui/components/widget-footer";
 
 export function WidgetSelectionScreen() {
     const setScreen = useSetAtom(screenAtom);
@@ -58,6 +59,7 @@ export function WidgetSelectionScreen() {
                     <ChevronRightIcon className="size-4" />
                 </Button>
             </div>
+            <WidgetFooter />
         </>
     )
 }

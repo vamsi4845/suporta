@@ -1,6 +1,6 @@
 "use client";
 import { useAtomValue } from "jotai";
-import { WidgetAuthScreen, WidgetErrorScreen, WidgetLoadingScreen, WidgetSelectionScreen, WidgetChatScreen } from "@/modules/widget/ui/screens";
+import { WidgetAuthScreen, WidgetErrorScreen, WidgetLoadingScreen, WidgetSelectionScreen, WidgetChatScreen, WidgetInboxScreen } from "@/modules/widget/ui/screens";
 import { screenAtom } from "@/modules/widget/atoms/widget-atoms";
 import { WidgetScreen } from "@/modules/widget/types";
 
@@ -17,6 +17,7 @@ export function WidgetView({organizationId}: Props) {
         loading: <WidgetLoadingScreen organizationId={organizationId} />,
         selection: <WidgetSelectionScreen />,
         chat: <WidgetChatScreen />,
+        inbox: <WidgetInboxScreen />,
     } as Record<WidgetScreen, React.ReactNode>;
     return <main className="min-h-screen min-w-screen flex h-full w-full flex-col overflow-hidden rounded-xl">{screenComponents[screen]}</main>;
 }
