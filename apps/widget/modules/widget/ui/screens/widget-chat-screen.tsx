@@ -19,7 +19,7 @@ import { useForm } from "react-hook-form";
 import {Form,FormControl,FormField,FormItem,FormLabel,FormMessage} from "@workspace/ui/components/form";
 import { useInfiniteScroll } from "@workspace/ui/hooks/use-infinite-scroll";
 import { InfiniteScrollTrigger } from "@workspace/ui/components/infinite-scroll-trigger";
-import { DicebarAvatar } from "@workspace/ui/components/dicebar-avatar";
+import { DicebearAvatar } from "@workspace/ui/components/dicebear-avatar";
 
 const formSchema = z.object({
     message: z.string().min(1,"Message is required"),
@@ -88,7 +88,7 @@ export function WidgetChatScreen() {
                                 </AIResponse>
                                 </AIMessageContent>
                                 {message.role === "assistant"  && (
-                                    <DicebarAvatar imageUrl="/logo.svg" seed="assistant" size={32}/>
+                                    <DicebearAvatar imageUrl="/logo.svg" seed="assistant" size={32}/>
                                 )}
                         </AIMessage>
                     ))}

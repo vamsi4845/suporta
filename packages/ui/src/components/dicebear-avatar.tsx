@@ -7,7 +7,7 @@ import {cn} from "@workspace/ui/lib/utils"
 import {useMemo} from "react"
 
 
-interface DicebarAvatarProps {
+interface DicebearAvatarProps {
     seed: string;
     size?: number;
     className?: string;
@@ -17,7 +17,7 @@ interface DicebarAvatarProps {
 }
 
 
-export const DicebarAvatar = ({seed, size = 32, className, badgeClassName, imageUrl, badgeImageUrl}: DicebarAvatarProps) => {
+export const DicebearAvatar = ({seed, size = 32, className, badgeClassName, imageUrl, badgeImageUrl}: DicebearAvatarProps) => {
     const avatarSrc = useMemo(() => {
         if(imageUrl) return imageUrl;
         const avatar = createAvatar(glass, {seed: seed.toLowerCase().trim(), size});
