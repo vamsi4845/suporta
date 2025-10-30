@@ -12,7 +12,6 @@ export const getMany = query({
   },
   handler: async (ctx, args) => {
     const identity = await ctx.auth.getUserIdentity();
-    console.log("identity", identity);
     if(!identity) {
       throw new ConvexError({
         code: "UNAUTHORIZED",
@@ -20,7 +19,6 @@ export const getMany = query({
       });
     }
     const orgId = identity.orgId as string;
-    console.log("orgId", orgId);
     if(!orgId) {
       throw new ConvexError({
         code: "UNAUTHORIZED",
@@ -28,7 +26,6 @@ export const getMany = query({
       });
     }
     let conversations:PaginationResult<Doc<"conversations">>;
-    console.log("args.status", args.status);
     if(args.status) {
       conversations = await ctx.db.query("conversations").withIndex("by_status_and_organization_id", q => q.eq("status", args.status as "unresolved" | "resolved" | "escalated").
       eq("organizationId", orgId)).order("desc").paginate(args.paginationOpts);

@@ -30,12 +30,12 @@ export const DicebearAvatar = ({seed, size = 32, className, badgeClassName, imag
         <div className="relative inline-block" style={{width: size, height: size}}>
             <Avatar className={cn("border", className)} style={{width: size, height: size}}>
                 <AvatarImage src={avatarSrc} alt="Avatar" />
+                </Avatar>
                 {badgeImageUrl && (
-                   <div className="absolute bottom-0 right-0 flex items-center justify-center overflow-hidden rounded-full border border-background bg-background" style={{width: badgeSize, height: badgeSize,transform: "translate(15%, 15%)"}}>
-                    <img src={badgeImageUrl} alt="Badge" width={badgeSize} height={badgeSize} className="h-full w-full object-cover" />
+                   <div className={cn("absolute bottom-0 right-0 flex items-center justify-center overflow-hidden rounded-full border-2 border-background bg-background z-50", badgeClassName)} style={{width: badgeSize, height: badgeSize,transform: "translate(15%, 15%)"}}>
+                    <img src={badgeImageUrl} alt="Badge" width={badgeSize} height={badgeSize} />
                    </div>
                 )}
-            </Avatar>
         </div>
     )
 }
