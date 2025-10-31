@@ -1,25 +1,24 @@
 "use client";
 
-import { useAtomValue, useSetAtom } from "jotai";
-import { AlertTriangle, ArrowLeftIcon, Menu, MenuIcon, MessageSquareTextIcon } from "lucide-react";
-import { WidgetHeader } from "@/modules/widget/ui/components/widget-header";
 import { contactSessionIdAtomFamily, conversationIdAtom, organizationIdAtom, screenAtom } from "@/modules/widget/atoms/widget-atoms";
-import { useAction, useQuery } from "convex/react";
+import { WidgetHeader } from "@/modules/widget/ui/components/widget-header";
+import { toUIMessages, useThreadMessages } from "@convex-dev/agent/react";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { api } from "@workspace/backend/_generated/api";
+import { AIConversation, AIConversationContent } from "@workspace/ui/components/ai/conversation";
+import { AIInput, AIInputSubmit, AIInputTextarea, AIInputToolbar, AIInputTools } from "@workspace/ui/components/ai/input";
+import { AIMessage, AIMessageContent } from "@workspace/ui/components/ai/message";
+import { AIResponse } from "@workspace/ui/components/ai/response";
 import { Button } from "@workspace/ui/components/button";
-import {AIConversation,AIConversationContent,AIConversationScrollButton} from "@workspace/ui/components/ai/conversation";
-import {AIMessage,AIMessageContent} from "@workspace/ui/components/ai/message";
-import {AIInput,AIInputButton,AIInputSubmit,AIInputTextarea,AIInputTextareaProps, AIInputToolbar, AIInputTools} from "@workspace/ui/components/ai/input";
-import {AIResponse} from "@workspace/ui/components/ai/response";
-import {AISuggestions,AISuggestion} from "@workspace/ui/components/ai/suggestion";
-import {useThreadMessages,toUIMessages} from "@convex-dev/agent/react";
-import {zodResolver} from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { useForm } from "react-hook-form";
-import {Form,FormControl,FormField,FormItem,FormLabel,FormMessage} from "@workspace/ui/components/form";
-import { useInfiniteScroll } from "@workspace/ui/hooks/use-infinite-scroll";
-import { InfiniteScrollTrigger } from "@workspace/ui/components/infinite-scroll-trigger";
 import { DicebearAvatar } from "@workspace/ui/components/dicebear-avatar";
+import { Form, FormField } from "@workspace/ui/components/form";
+import { InfiniteScrollTrigger } from "@workspace/ui/components/infinite-scroll-trigger";
+import { useInfiniteScroll } from "@workspace/ui/hooks/use-infinite-scroll";
+import { useAction, useQuery } from "convex/react";
+import { useAtomValue, useSetAtom } from "jotai";
+import { ArrowLeftIcon, MenuIcon } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 
 const formSchema = z.object({
     message: z.string().min(1,"Message is required"),

@@ -3,6 +3,7 @@ import { OrgGuard } from "@/modules/auth/ui/components/org-guard";
 import { SidebarProvider } from "@workspace/ui/components/sidebar";
 import { cookies } from "next/headers";
 import { DashboardSidebar } from "@/modules/dashboard/ui/components/dashboard-sidebar";
+import { Provider } from "jotai";
 
 export const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
 
@@ -13,12 +14,14 @@ export const DashboardLayout = async ({ children }: { children: React.ReactNode 
   return( 
     <AuthGuard>
         <OrgGuard>
+          <Provider>
             <SidebarProvider defaultOpen={defaultOpen}>
                 <DashboardSidebar />
                   <main className="flex flex-1 flex-col">
                     {children}
                  </main>
             </SidebarProvider>
+          </Provider>
         </OrgGuard>
     </AuthGuard>
   );
