@@ -1,0 +1,25 @@
+import { createTool } from "@convex-dev/agent";
+import { z } from "zod";
+import { internal } from "../../../_generated/api";
+import { supportAgent } from "../agents/supportAgent";
+
+
+export const escalateConversation = createTool({
+  description: "Escalate a conversation",
+  args: z.object({}),
+  handler: async (ctx, args) => {
+    if(!ctx.threadId){
+        return "Missing threadId";
+    }
+
+    await ctx.runMutation(internal.system.conversations.escalate, { threadId: ctx.threadId });
+    await supportAgent.saveMessage(ctx, {
+        threadId: ctx.threadId,
+        message: {
+            content: "Conversation escalated to a human support",
+            role: "assistant",
+        },
+    });
+    return "Conversation escalated";
+  }
+});
