@@ -19,5 +19,5 @@ export function WidgetView({organizationId}: Props) {
         chat: <WidgetChatScreen />,
         inbox: <WidgetInboxScreen />,
     } as Record<WidgetScreen, React.ReactNode>;
-    return <main className="min-h-screen min-w-screen flex h-full w-full flex-col overflow-hidden rounded-xl">{screenComponents[screen]}</main>;
+    return <main className="flex h-full w-full flex-col overflow-hidden rounded-xl border bg-muted">{screenComponents[screen]}</main>;
 }
