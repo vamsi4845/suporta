@@ -8,6 +8,7 @@
  * @module
  */
 
+import type * as http from "../http.js";
 import type * as lib_extractTextContent from "../lib/extractTextContent.js";
 import type * as private_conversations from "../private/conversations.js";
 import type * as private_files from "../private/files.js";
@@ -25,6 +26,7 @@ import type * as system_ai_tools_search from "../system/ai/tools/search.js";
 import type * as system_contactSessions from "../system/contactSessions.js";
 import type * as system_conversations from "../system/conversations.js";
 import type * as system_messages from "../system/messages.js";
+import type * as system_subscriptions from "../system/subscriptions.js";
 import type * as users from "../users.js";
 
 import type {
@@ -42,6 +44,7 @@ import type {
  * ```
  */
 declare const fullApi: ApiFromModules<{
+  http: typeof http;
   "lib/extractTextContent": typeof lib_extractTextContent;
   "private/conversations": typeof private_conversations;
   "private/files": typeof private_files;
@@ -59,6 +62,7 @@ declare const fullApi: ApiFromModules<{
   "system/contactSessions": typeof system_contactSessions;
   "system/conversations": typeof system_conversations;
   "system/messages": typeof system_messages;
+  "system/subscriptions": typeof system_subscriptions;
   users: typeof users;
 }>;
 declare const fullApiWithMounts: typeof fullApi;
