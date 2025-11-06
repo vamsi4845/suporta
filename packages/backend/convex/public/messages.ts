@@ -5,6 +5,7 @@ import { supportAgent } from "../system/ai/agents/supportAgent";
 import { paginationOptsValidator } from "convex/server";
 import { resolveConversation } from "../system/ai/tools/resolveConversation";
 import { escalateConversation } from "../system/ai/tools/escalateConversation";
+import { search } from "../system/ai/tools/search";
 import { saveMessage } from "@convex-dev/agent";
 
 export const create = action({
@@ -36,7 +37,11 @@ export const create = action({
     }
     const shouldTriggerAgent = conversation.status === "unresolved";
     if(shouldTriggerAgent) {
-      await supportAgent.generateText(ctx, {threadId: args.threadId},{prompt: args.prompt,tools: {resolveConversation, escalateConversation}},);
+      await supportAgent.generateText(ctx, {threadId: args.threadId},{prompt: args.prompt,tools: {
+        resolveConversationTool:resolveConversation,
+         escalateConversationTool:escalateConversation,
+         searchTool:search
+        }},);
     } else {
       await saveMessage(ctx, components.agent, {
         threadId: args.threadId,
