@@ -35,6 +35,10 @@ export const create = action({
         message: "Conversation is resolved",
       });
     }
+
+    await ctx.runMutation(internal.system.contactSessions.refresh,{
+      contactSessionId:args.contactSessionId
+    })
     const shouldTriggerAgent = conversation.status === "unresolved";
     if(shouldTriggerAgent) {
       await supportAgent.generateText(ctx, {threadId: args.threadId},{prompt: args.prompt,tools: {
