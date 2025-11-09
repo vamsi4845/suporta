@@ -1,7 +1,7 @@
+import { IntegrationsView } from "@/modules/integrations/ui/views/integrations-view";
+
 export default function IntegrationsPage() {
     return (
-        <div>
-            <h1>Integrations</h1>
-        </div>
+        <IntegrationsView/>
     )
 }
