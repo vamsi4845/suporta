@@ -1,12 +1,11 @@
 "use client"
 import { Input } from "@workspace/ui/components/input";
 import { Label } from "@workspace/ui/components/label";
-import { useAtomValue } from "jotai";
 import { useOrganization } from "@clerk/nextjs";
 import { Separator } from "@workspace/ui/components/separator";
 import { INTEGRATIONS } from "../../constants";
 import Image from "next/image";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@workspace/ui/components/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle} from "@workspace/ui/components/dialog";
 import { Button } from "@workspace/ui/components/button";
 import { CopyIcon } from "lucide-react";
 import { useState } from "react";
