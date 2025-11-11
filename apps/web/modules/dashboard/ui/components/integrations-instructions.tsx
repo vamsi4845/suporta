@@ -1,3 +1,4 @@
+"use client"
 import { useOrganization } from "@clerk/nextjs";
 import { Button } from "@workspace/ui/components/button";
 import { Label } from "@workspace/ui/components/label";
@@ -39,7 +40,44 @@ export function IntegrationsInstructions() {
                 </div>
             </div>
             <Separator className="my-8" />
-           <IntegrationsInstructions />
+           <div className="space-y-6">
+                    <div className="space-y-6 overflow-x-hidden">
+                    <div className="space-y-4">
+                        <div className="space-y-1">
+                    <h2 className="text-2xl">Install the widget</h2>
+                    <p className="text-sm text-muted-foreground">
+                        Get the Supportly widget running on your website in under a minute.
+                    </p>
+                        </div>
+                        <div className="space-y-1">
+                            <div className="flex items-center gap-2">
+                                <Image src="/code.svg" alt="code" width={20} height={20} />
+                                <h3 className="text-base font-semibold">Widget Integration</h3>
+                            </div>
+                            <p className="text-sm text-muted-foreground">
+                                Add this single line in head section of your HTML file.
+                            </p>
+                            <div className="group relative w-full bg-white border border-border rounded-md">
+                                <div className="rounded-md p-3 text-sm font-mono overflow-hidden">
+                                    <code className="block truncate max-w-[95%]">{updatedScript}</code>
+                                </div>
+                                <Button 
+                                    variant="ghost" 
+                                    size="icon"
+                                    className="absolute top-2 right-2 h-8 w-8 hover:!bg-white"
+                                    onClick={() => handleCopy(updatedScript)}
+                                >
+                                    {copiedSection ? (
+                                        <CheckIcon className="size-4" />
+                                    ) : (
+                                        <CopyIcon className="size-4" />
+                                    )}
+                                </Button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </div>
         </div>
     </div>
     )

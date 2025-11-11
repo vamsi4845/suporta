@@ -45,16 +45,6 @@ export function DashboardSidebar(){
                 <SidebarMenu>
                     <SidebarMenuItem>
                         <SidebarMenuButton asChild size="lg">
-                            {/* <OrganizationSwitcher hidePersonal skipInvitationScreen appearance={{
-                                elements: {
-                                    rootBox:"w-full! h-8!",
-                                    avatarBox:"size-4! rounded-sm!",
-                                    organizationSwitcherTrigger:"w-full! justify-start! group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! ",
-                                    organizationPreview:"group-data-[collapsible=icon]:justify-center! gap-2!",
-                                    organizationPreviewTextContainer:"group-data-[collapsible=icon]:hidden! text-xs! font-medium! text-sidebar-foreground!",
-                                    organizationSwitcherTriggerIcon:"group-data-[collapsible=icon]:hidden! ml-auto! text-sidebar-foreground!"
-                                },
-                            }} /> */}
                         <div className="flex items-center gap-2 py-1">
                             <Image src="/logo.svg" alt="logo" width={32} height={32}/>
                             <h2 className="text-2xl font-bold">Supportly</h2>
