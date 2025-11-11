@@ -44,8 +44,8 @@ export function DashboardSidebar(){
             <SidebarHeader>
                 <SidebarMenu>
                     <SidebarMenuItem>
-                        {/* <SidebarMenuButton asChild size="lg">
-                            <OrganizationSwitcher hidePersonal skipInvitationScreen appearance={{
+                        <SidebarMenuButton asChild size="lg">
+                            {/* <OrganizationSwitcher hidePersonal skipInvitationScreen appearance={{
                                 elements: {
                                     rootBox:"w-full! h-8!",
                                     avatarBox:"size-4! rounded-sm!",
@@ -54,12 +54,12 @@ export function DashboardSidebar(){
                                     organizationPreviewTextContainer:"group-data-[collapsible=icon]:hidden! text-xs! font-medium! text-sidebar-foreground!",
                                     organizationSwitcherTriggerIcon:"group-data-[collapsible=icon]:hidden! ml-auto! text-sidebar-foreground!"
                                 },
-                            }} />
-                        </SidebarMenuButton> */}
+                            }} /> */}
                         <div className="flex items-center gap-2 py-1">
                             <Image src="/logo.svg" alt="logo" width={32} height={32}/>
                             <h2 className="text-2xl font-bold">Supportly</h2>
                         </div>
+                        </SidebarMenuButton>
                     </SidebarMenuItem>
                 </SidebarMenu>
             </SidebarHeader>
@@ -76,7 +76,7 @@ export function DashboardSidebar(){
                         <SidebarMenu>
                             {navItems?.map((item) => (
                                 <SidebarMenuItem key={item.title}>
-                                    <SidebarMenuButton asChild  tooltip={item.title} isActive={isActive(item.url)} className={cn(isActive(item.url) && "bg-background border border-sidebar-border text-background")}>
+                                    <SidebarMenuButton asChild  tooltip={item.title} isActive={isActive(item.url)} className={cn(isActive(item.url) && "bg-background border border-sidebar-border text-background rounded-xl")}>
                                         <Link href={item.url}>
                                             <Image src={item.icon} alt={item.title} width={24} height={24}/>
                                             <span>{item.title}</span>

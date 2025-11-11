@@ -25,6 +25,7 @@ import {
 import { cn } from "@workspace/ui/lib/utils";
 import { Separator } from "@workspace/ui/components/separator";
 import { Button } from "@workspace/ui/components/button";
+import { useSidebar } from "@workspace/ui/components/sidebar";
 
 type CommandLinkItem = {
   title: string;
@@ -67,9 +68,10 @@ export function CommandMenu() {
   const router = useRouter();
 
   const { setTheme } = useTheme();
+  const { state } = useSidebar();
 
   const [open, setOpen] = useState(false);
-
+  const isSidebarOpen = state === "expanded";
   useEffect(() => {
     const abortController = new AbortController();
     const { signal } = abortController;
@@ -128,7 +130,7 @@ export function CommandMenu() {
     <>
       <Button
         variant="secondary"
-        className="h-8 gap-1.5 rounded-full border bg-zinc-50 px-2.5 text-muted-foreground select-none hover:bg-zinc-50 dark:bg-zinc-900 dark:hover:bg-zinc-900"
+        className="h-8 gap-1.5 rounded-xl border bg-zinc-50 px-2.5 text-muted-foreground select-none hover:bg-zinc-50 dark:bg-zinc-900 dark:hover:bg-zinc-900"
         onClick={() => setOpen(true)}
       >
         <svg
@@ -145,16 +147,22 @@ export function CommandMenu() {
           />
         </svg>
 
+        {isSidebarOpen && (
         <span className="font-sans text-sm/4 font-medium">
           Search
         </span>
+        )}
 
-        <CommandMenuKbd className="hidden tracking-wider sm:in-[.os-macos_&]:flex">
-          ⌘K
-        </CommandMenuKbd>
-        <CommandMenuKbd className="hidden sm:not-[.os-macos_&]:flex">
-          Ctrl K
-        </CommandMenuKbd>
+        {isSidebarOpen && (
+          <CommandMenuKbd className="hidden tracking-wider sm:in-[.os-macos_&]:flex">
+            ⌘K
+          </CommandMenuKbd>
+        )}
+        {isSidebarOpen && (
+          <CommandMenuKbd className="hidden sm:not-[.os-macos_&]:flex">
+            Ctrl K
+          </CommandMenuKbd>
+        )}
       </Button>
 
       <CommandDialog open={open} onOpenChange={setOpen}>
