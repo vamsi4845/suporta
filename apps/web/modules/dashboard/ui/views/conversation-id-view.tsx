@@ -90,12 +90,12 @@ export function ConversationIdView({conversationId}: {conversationId: Id<"conver
     }
     return (
         <div className="flex h-full flex-col bg-muted">
-            <header className="flex items-center justify-between border-b bg-background p-2.5">
-                <Button size="sm" variant="ghost" onClick={() => {
+            <header className="flex items-center justify-end border-b bg-background p-2.5">
+                {/* <Button size="sm" variant="ghost" onClick={() => {
                     router.push(`/conversations/${conversationId}`);
                 }}>
                     <MoreHorizontalIcon/>
-                </Button>
+                </Button> */}
                 {conversation && (
                     <ConversationStatusButton status={conversation?.status ?? "unresolved"} onClick={handleUpdateStatus} disabled={isUpdatingStatus} />
                 )}

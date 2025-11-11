@@ -1,52 +1,34 @@
 "use client"
 
-import { OrganizationSwitcher,UserButton } from "@clerk/nextjs";
-import {CreditCardIcon,InboxIcon,LayoutDashboardIcon,LibraryBigIcon, MicIcon, PaletteIcon, SettingsIcon, UserIcon} from "lucide-react";
-import {Sidebar,SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, SidebarRail } from "@workspace/ui/components/sidebar";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
-import Image from "next/image";
+import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
+import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarRail } from "@workspace/ui/components/sidebar";
 import { cn } from "@workspace/ui/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { CommandMenu } from "./command-menu";
 
 
-const supportItems = [
+const navItems =[
     {
         title: "Conversations",
         url: "/conversations",
-        icon: InboxIcon,
+        icon: "/msgs.svg"
     },
     {
         title: "Knowledge Base",
         url: "/files",
-        icon: LibraryBigIcon,
-    },
-    
-]
-
-const configItems = [
-    {
-        title: "Widget Customization",
-        url: "/customization",
-        icon: PaletteIcon,
+        icon: "/book-open.svg"
     },
     {
         title: "Integrations",
         url: "/integrations",
-        icon: LayoutDashboardIcon,
+        icon:"/code-editor.svg"
     },
     {
-        title: "Voice Assistant",
-        url: "/plugins/vapi",
-        icon: MicIcon,
-    },
-    
-]
-
-const accountItems = [
-    {
-        title: "Billing",
-        url: "/billing",
-        icon: CreditCardIcon,
+        title: "Widget Customization",
+        url: "/customization",
+        icon: "/magic-wand-sparkle.svg",
     },
 ]
 
@@ -62,7 +44,7 @@ export function DashboardSidebar(){
             <SidebarHeader>
                 <SidebarMenu>
                     <SidebarMenuItem>
-                        <SidebarMenuButton asChild size="lg">
+                        {/* <SidebarMenuButton asChild size="lg">
                             <OrganizationSwitcher hidePersonal skipInvitationScreen appearance={{
                                 elements: {
                                     rootBox:"w-full! h-8!",
@@ -73,54 +55,30 @@ export function DashboardSidebar(){
                                     organizationSwitcherTriggerIcon:"group-data-[collapsible=icon]:hidden! ml-auto! text-sidebar-foreground!"
                                 },
                             }} />
-                        </SidebarMenuButton>
+                        </SidebarMenuButton> */}
+                        <div className="flex items-center gap-2 py-1">
+                            <Image src="/logo.svg" alt="logo" width={32} height={32}/>
+                            <h2 className="text-2xl font-bold">Supportly</h2>
+                        </div>
                     </SidebarMenuItem>
                 </SidebarMenu>
             </SidebarHeader>
             <SidebarContent>
                 <SidebarGroup>
-                    <SidebarGroupLabel>Customer Support</SidebarGroupLabel>
                     <SidebarGroupContent>
                         <SidebarMenu>
-                            {supportItems?.map((item) => (
-                                <SidebarMenuItem key={item.title}>
-                                    <SidebarMenuButton asChild  tooltip={item.title} isActive={isActive(item.url)} className={cn(isActive(item.url) && "bg-gradient-to-b from-sidebar-primary to-[#0b63f3]! text-sidebar-primary-foreground! hover:to-[#0b63f3]/90!")}>
-                                        <Link href={item.url}>
-                                            <item.icon className="size-4" />
-                                            <span>{item.title}</span>
-                                        </Link>
-                                    </SidebarMenuButton>
-                                </SidebarMenuItem>
-                            ))}
+                            <CommandMenu/>
                         </SidebarMenu>
                     </SidebarGroupContent>
                 </SidebarGroup>
                 <SidebarGroup>
-                    <SidebarGroupLabel>Configuration</SidebarGroupLabel>
                     <SidebarGroupContent>
                         <SidebarMenu>
-                            {configItems?.map((item) => (
+                            {navItems?.map((item) => (
                                 <SidebarMenuItem key={item.title}>
-                                    <SidebarMenuButton asChild  tooltip={item.title} isActive={isActive(item.url)} className={cn(isActive(item.url) && "bg-gradient-to-b from-sidebar-primary to-[#0b63f3]! text-sidebar-primary-foreground! hover:to-[#0b63f3]/90!")}>
+                                    <SidebarMenuButton asChild  tooltip={item.title} isActive={isActive(item.url)} className={cn(isActive(item.url) && "bg-background border border-sidebar-border text-background")}>
                                         <Link href={item.url}>
-                                            <item.icon className="size-4" />
-                                            <span>{item.title}</span>
-                                        </Link>
-                                    </SidebarMenuButton>
-                                </SidebarMenuItem>
-                            ))}
-                        </SidebarMenu>
-                    </SidebarGroupContent>
-                </SidebarGroup>
-                <SidebarGroup>
-                    <SidebarGroupLabel>Account</SidebarGroupLabel>
-                    <SidebarGroupContent>
-                        <SidebarMenu>
-                            {accountItems?.map((item) => (
-                                <SidebarMenuItem key={item.title}>
-                                    <SidebarMenuButton asChild  tooltip={item.title} isActive={isActive(item.url)} className={cn(isActive(item.url) && "bg-gradient-to-b from-sidebar-primary to-[#0b63f3]! text-sidebar-primary-foreground! hover:to-[#0b63f3]/90!")}>
-                                        <Link href={item.url}>
-                                            <item.icon className="size-4" />
+                                            <Image src={item.icon} alt={item.title} width={24} height={24}/>
                                             <span>{item.title}</span>
                                         </Link>
                                     </SidebarMenuButton>
