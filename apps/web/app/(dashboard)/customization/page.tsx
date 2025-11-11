@@ -1,7 +1,5 @@
+import { CustomizationView } from "@/modules/customization/ui/views/customization-view";
+
 export default function CustomizationPage() {
-    return (
-        <div>
-            <h1>Customization</h1>
-        </div>
-    )
+    return <CustomizationView />;
 }

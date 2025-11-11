@@ -19,6 +19,7 @@ import { useAtomValue, useSetAtom } from "jotai";
 import { ArrowLeftIcon, MenuIcon } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { useWidgetCustomization } from "@/modules/widget/hooks/use-widget-customization";
 
 const formSchema = z.object({
     message: z.string().min(1,"Message is required"),
@@ -32,6 +33,7 @@ export function WidgetChatScreen() {
     const organizationId = useAtomValue(organizationIdAtom);
     const conversationId = useAtomValue(conversationIdAtom);
     const contactSessionId = useAtomValue(contactSessionIdAtomFamily(organizationId!));
+    const customization = useWidgetCustomization();
     const conversation = useQuery(api.public.conversations.getOne, {conversationId: conversationId!,contactSessionId: contactSessionId!});
 
     const messages = useThreadMessages(api.public.messages.getMany, conversation?.threadId && contactSessionId ? {threadId: conversation.threadId, contactSessionId}:"skip", {initialNumItems: 10});
@@ -72,9 +74,9 @@ export function WidgetChatScreen() {
                     </Button>
                     <p className="text-sm font-medium">Chat</p>
                 </div>
-                <Button variant="transparent" size="icon">
+                {/* <Button variant="transparent" size="icon">
                     <MenuIcon className="size-4" />
-                </Button>
+                </Button> */}
             </WidgetHeader>
             <AIConversation>
                 <AIConversationContent>
@@ -87,7 +89,7 @@ export function WidgetChatScreen() {
                                 </AIResponse>
                                 </AIMessageContent>
                                 {message.role === "assistant"  && (
-                                    <DicebearAvatar imageUrl="/logo.svg" seed="assistant" size={32}/>
+                                    <DicebearAvatar imageUrl={customization?.logoUrl || "/logo.svg"} seed="assistant" size={32}/>
                                 )}
                         </AIMessage>
                     ))}

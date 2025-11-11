@@ -9,6 +9,7 @@ import { contactSessionIdAtomFamily, conversationIdAtom, errorMessageAtom, organ
 import { useAtomValue, useSetAtom } from "jotai";
 import { useState } from "react";
 import { WidgetFooter } from "@/modules/widget/ui/components/widget-footer";
+import { useWidgetCustomization } from "@/modules/widget/hooks/use-widget-customization";
 
 export function WidgetSelectionScreen() {
     const setScreen = useSetAtom(screenAtom);
@@ -18,6 +19,7 @@ export function WidgetSelectionScreen() {
     const contactSessionId = useAtomValue(contactSessionIdAtomFamily(organizationId!));
     const createConversation = useMutation(api.public.conversations.create);
     const [isPending, setIsPending] = useState(false);
+    const customization = useWidgetCustomization();
 
 
     const handleNewConversation = async () => {
@@ -41,7 +43,7 @@ export function WidgetSelectionScreen() {
     return (
         <>
             <WidgetHeader>
-                <div className="flex flex-col justify-between gap-2 px-2 py-6 font-semibold">
+                <div className="flex flex-col justify-between gap-2 px-2 py-6 font-semibold" >
                     <p className="text-3xl ">
                     Hi, there!
                     </p>
@@ -51,7 +53,7 @@ export function WidgetSelectionScreen() {
                 </div>
             </WidgetHeader>
             <div className="flex flex-1 flex-col items-center gap-y-4 p-4 overflow-y-auto">
-                <Button disabled={isPending} variant="outline" className="w-full h-16 justify-between" onClick={handleNewConversation}>
+                <Button disabled={isPending} variant="outline" className="w-full h-16 justify-between" onClick={handleNewConversation} style={{ backgroundColor: customization?.backgroundColor }}>
                     <div className="flex items-center gap-x-2">
                         <MessageSquareTextIcon className="size-4" />
                         <span>Start Chat</span>

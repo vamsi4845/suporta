@@ -12,8 +12,9 @@ import {
 export function CopyInput({placeholder}:{placeholder:string}) {
   const [copied, setCopied] = useState(false);
 
-  const handleCopy = () => {
+  const handleCopy = async () => {
     setCopied(true);
+    await navigator.clipboard.writeText(placeholder);
     setTimeout(() => setCopied(false), 2000);
   };
 

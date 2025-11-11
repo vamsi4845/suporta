@@ -43,4 +43,12 @@ export default defineSchema({
   users: defineTable({
     name: v.string()
   }),
+  widgetCustomizations: defineTable({
+    organizationId: v.string(),
+    buttonColor: v.string(),
+    position: v.union(v.literal("bottom-right"), v.literal("bottom-left")),
+    logoUrl: v.optional(v.string()),
+    primaryColor: v.string(),
+    backgroundColor: v.string(),
+  }).index("by_organization_id", ["organizationId"]),
 });

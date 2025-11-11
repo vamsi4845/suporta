@@ -13,4 +13,14 @@ export const contactSessionIdAtomFamily = atomFamily((organizationId:string)=> a
 
 
 export const errorMessageAtom = atom<string | null>(null);
-export const loadingMessageAtom =  atom<string | null>(null)
+export const loadingMessageAtom =  atom<string | null>(null);
+
+export interface WidgetCustomization {
+  buttonColor: string;
+  position: "bottom-right" | "bottom-left";
+  logoUrl: string | null;
+  primaryColor: string;
+  backgroundColor: string;
+}
+
+export const customizationAtom = atom<WidgetCustomization | null>(null);
