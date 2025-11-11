@@ -21,7 +21,7 @@ export function IntegrationsInstructions() {
         }
     };
 
-    const updatedScript = `<script src="https://ai-support-bot-widget-beta.vercel.app" data-organization-id="${organization?.id}"></script>`;
+    const updatedScript = `<script src="https://ai-support-bot-widget-beta.vercel.app/widget.js" data-organization-id="${organization?.id}"></script>`;
     return (
         <div className="flex min-h-screen flex-col bg-muted p-8">
         <div className="mx-auto w-full max-w-2xl">
