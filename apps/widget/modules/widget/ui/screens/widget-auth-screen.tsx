@@ -10,6 +10,7 @@ import { useMutation } from "convex/react";
 import { Doc } from "@workspace/backend/_generated/dataModel";
 import { useAtomValue, useSetAtom } from "jotai";
 import { contactSessionIdAtomFamily, organizationIdAtom, screenAtom } from "@/modules/widget/atoms/widget-atoms";
+import { useWidgetCustomization } from "@/modules/widget/hooks/use-widget-customization";
 
 const formSchema = z.object({
     name: z.string().min(1,"Name is required"),
@@ -20,6 +21,7 @@ export function WidgetAuthScreen() {
     const setScreen = useSetAtom(screenAtom);
     const organizationId = useAtomValue(organizationIdAtom);
     const setContactSessionId = useSetAtom(contactSessionIdAtomFamily(organizationId!));
+    const customization = useWidgetCustomization();
     
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -91,7 +93,7 @@ export function WidgetAuthScreen() {
                             <FormMessage />
                         </FormItem>
                     )} />
-                    <Button disabled={form.formState.isSubmitting} size="lg" type="submit" className="w-full">Continue</Button>
+                    <Button disabled={form.formState.isSubmitting} size="lg" type="submit" className="w-full" style={{ backgroundColor: customization?.primaryColor }}>Continue</Button>
                 </form>
             </Form>
         </div>

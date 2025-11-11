@@ -152,7 +152,7 @@ export function CustomizationView() {
   };
 
   const previewUrl = organization?.id
-    ? `http://localhost:3001?organizationId=${organization.id}`
+    ? `https://ai-support-bot-widget-beta.vercel.app/?organizationId=${organization.id}`
     : "";
 
   return (
