@@ -14,7 +14,6 @@ interface NumbersThatSpeakProps {
 /**
  * Numbers that speak – Financial dashboard with layered charts
  * Generated from Figma via MCP with exact measurements (482×300px)
- * Single-file component following the v0-ready pattern used in this repo.
  */
 const NumbersThatSpeak: React.FC<NumbersThatSpeakProps> = ({
   width = 482,

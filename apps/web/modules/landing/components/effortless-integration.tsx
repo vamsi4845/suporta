@@ -14,7 +14,6 @@ interface EffortlessIntegrationProps {
 /**
  * Effortless Integration – Service integration constellation
  * Generated from Figma via MCP with exact measurements (482×300px)
- * Single-file component following the v0-ready pattern used in this repo.
  */
 const EffortlessIntegration: React.FC<EffortlessIntegrationProps> = ({
   width = 482,
