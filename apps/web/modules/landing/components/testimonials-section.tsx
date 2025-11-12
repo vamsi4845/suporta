@@ -85,8 +85,8 @@ export default function TestimonialsSection() {
                 transform: isTransitioning ? "scale(0.95)" : "scale(1)",
                 transition: "opacity 0.7s ease-in-out, transform 0.7s ease-in-out",
               }}
-              src={testimonials[activeTestimonial].image || "/placeholder.svg"}
-              alt={testimonials[activeTestimonial].name}
+              src={testimonials[activeTestimonial]?.image || "/placeholder.svg"}
+              alt={testimonials[activeTestimonial]?.name || "Placeholder"}
             />
             <div className="flex-1 px-6 py-6 shadow-[0px_0px_0px_0.75px_rgba(50,45,43,0.12)] overflow-hidden flex flex-col justify-start items-start gap-6 shadow-none pb-0 pt-0">
               <div
@@ -96,7 +96,7 @@ export default function TestimonialsSection() {
                   transition: "filter 0.7s ease-in-out",
                 }}
               >
-                "{testimonials[activeTestimonial].quote}"
+                "{testimonials[activeTestimonial]?.quote}"
               </div>
               <div
                 className="self-stretch flex flex-col justify-start items-start gap-1 transition-all duration-700 ease-in-out"
@@ -106,10 +106,10 @@ export default function TestimonialsSection() {
                 }}
               >
                 <div className="self-stretch justify-center flex flex-col text-[rgba(73,66,61,0.90)] text-lg font-medium leading-[26px] font-sans">
-                  {testimonials[activeTestimonial].name}
+                  {testimonials[activeTestimonial]?.name}
                 </div>
                 <div className="self-stretch justify-center flex flex-col text-[rgba(73,66,61,0.70)] text-lg font-medium leading-[26px] font-sans">
-                  {testimonials[activeTestimonial].company}
+                  {testimonials[activeTestimonial]?.company}
                 </div>
               </div>
             </div>

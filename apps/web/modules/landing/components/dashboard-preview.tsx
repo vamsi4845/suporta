@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button"
+import { Button } from "@workspace/ui/components/button"
 export function DashboardPreview() {
   return (
     <section className="relative pb-16">

@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button"
+import { Button } from "@workspace/ui/components/button"
 
 export function HeroSection() {
   return (
@@ -9,11 +9,10 @@ export function HeroSection() {
           <div className="max-w-[937px] flex flex-col items-center gap-3">
             <div className="flex flex-col items-center gap-6">
               <h1 className="max-w-[748px] text-center text-[#37322f] text-5xl md:text-[80px] font-normal leading-tight md:leading-[96px] font-serif">
-                Effortless custom contract billing by Brillance
+                AI support that answers instantly from your knowledge base
               </h1>
               <p className="max-w-[506px] text-center text-[#37322f]/80 text-lg font-medium leading-7">
-                Streamline your billing process with seamless automation for every custom contract, tailored by
-                Brillance.
+                Deploy an AI support agent that searches your knowledge base, escalates to humans when needed, and resolves issues automatically.
               </p>
             </div>
           </div>
