@@ -8,7 +8,7 @@ import { useAtomValue, useSetAtom } from "jotai";
 import { LoaderIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 
-type InitStep = "storage" | "org" | "session" | "settings" | "vapi" | "done";
+type InitStep = "storage" | "org" | "session" | "settings"| "done";
 
 export function WidgetLoadingScreen({organizationId}:{organizationId: string | null}) {
     const [step, setStep] = useState<InitStep>("org");

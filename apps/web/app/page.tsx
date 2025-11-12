@@ -24,7 +24,7 @@ function Badge({ icon, text }: { icon: React.ReactNode; text: string }) {
 }
 
 export default function LandingPage() {
-  const [activeCard, setActiveCard] = useState(2)
+  const [activeCard, setActiveCard] = useState(0)
   const [progress, setProgress] = useState(0)
   const mountedRef = useRef(true)
 

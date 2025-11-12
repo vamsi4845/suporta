@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "@convex-dev/agent": "^0.1.16",
-    "@vapi-ai/web": "^2.4.0",
     "@vercel/analytics": "^1.5.0",
     "@workspace/backend": "workspace:*",
     "@workspace/math": "workspace:*",
