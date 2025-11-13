@@ -1,6 +1,6 @@
-export  function AuthLayout({ children }: { children: React.ReactNode }) {
+export function AuthLayout({ children }: { children: React.ReactNode }) {
     return (
-        <div className="flex items-center justify-center min-h-svh">
+        <div className="w-full min-h-svh">
             {children}
         </div>
     )

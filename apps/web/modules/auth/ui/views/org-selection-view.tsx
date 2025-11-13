@@ -1,15 +1,19 @@
 import { OrganizationList } from "@clerk/nextjs";
+import AnimatedCharactersWrapper from "@/modules/auth/ui/components/animated-characters";
 
 
 export function OrgSelectionView(){
 
     return (
-        <OrganizationList
-        afterCreateOrganizationUrl="/"
-        afterSelectOrganizationUrl="/"
-        hidePersonal
-        skipInvitationScreen
-        />
+        <AnimatedCharactersWrapper>
+            <OrganizationList
+                afterCreateOrganizationUrl="/conversations"
+                afterSelectOrganizationUrl="/conversations"
+                hidePersonal
+                skipInvitationScreen
+                hideSlug
+            />
+        </AnimatedCharactersWrapper>
     )
     
 }

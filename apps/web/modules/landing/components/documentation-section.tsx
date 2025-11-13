@@ -52,19 +52,19 @@ export default function DocumentationSection() {
   }
 
   return (
-    <div className="w-full border-b border-[rgba(55,50,47,0.12)] flex flex-col justify-center items-center">
-      <div className="self-stretch px-6 md:px-24 py-12 md:py-16 border-b border-[rgba(55,50,47,0.12)] flex justify-center items-center gap-6">
+    <div className="w-full border-b border-black/10 flex flex-col justify-center items-center">
+      <div className="self-stretch px-6 md:px-24 py-12 md:py-16 border-b border-black/10 flex justify-center items-center gap-6">
         <div className="w-full max-w-[586px] px-6 py-5 shadow-[0px_2px_4px_rgba(50,45,43,0.06)] overflow-hidden rounded-lg flex flex-col justify-start items-center gap-4 shadow-none">
           <Badge
             icon={
-              <div className="w-[10.50px] h-[10.50px] outline outline-[1.17px] outline-[#37322F] outline-offset-[-0.58px] rounded-full"></div>
+              <div className="w-[10.50px] h-[10.50px] outline outline-[1.17px] outline-[#333333] outline-offset-[-0.58px] rounded-full"></div>
             }
             text="Getting Started"
           />
-          <div className="self-stretch text-center flex justify-center flex-col text-[#49423D] text-3xl md:text-5xl font-semibold leading-tight md:leading-[60px] font-sans tracking-tight">
+          <div className="self-stretch text-center flex justify-center flex-col text-black/80 text-3xl md:text-5xl font-semibold leading-tight md:leading-[60px] font-sans tracking-tight">
             Get your AI support agent running in minutes
           </div>
-          <div className="self-stretch text-center text-[#605A57] text-base font-normal leading-7 font-sans">
+          <div className="self-stretch text-center text-black/80 text-base font-normal leading-7 font-sans">
             Set up your knowledge base, add the widget to your site,
             <br />
             and start answering customer questions automatically.
@@ -93,14 +93,14 @@ export default function DocumentationSection() {
                   >
                     <div
                       key={animationKey}
-                      className="h-0.5 bg-[#322D2B] animate-[progressBar_5s_linear_forwards] will-change-transform"
+                      className="h-0.5 bg-black/80 animate-[progressBar_5s_linear_forwards] will-change-transform"
                     />
                   </div>
                   <div className="px-6 py-5 w-full flex flex-col gap-2">
-                    <div className="self-stretch flex justify-center flex-col text-[#49423D] text-sm font-semibold leading-6 font-sans">
+                    <div className="self-stretch flex justify-center flex-col text-black/80 text-sm font-semibold leading-6 font-sans">
                       {card.title}
                     </div>
-                    <div className="self-stretch text-[#605A57] text-[13px] font-normal leading-[22px] font-sans whitespace-pre-line">
+                    <div className="self-stretch text-black/80 text-[13px] font-normal leading-[22px] font-sans whitespace-pre-line">
                       {card.description}
                     </div>
                   </div>
@@ -110,7 +110,7 @@ export default function DocumentationSection() {
           </div>
 
           <div className="w-full md:w-auto rounded-lg flex flex-col justify-center items-center gap-2 order-1 md:order-2 md:px-0 px-[00]">
-            <div className="w-full md:w-[580px] h-[250px] md:h-[420px] bg-white shadow-[0px_0px_0px_0.9056603908538818px_rgba(0,0,0,0.08)] overflow-hidden rounded-lg flex flex-col justify-start items-start relative">
+            <div className="w-full md:w-[580px] h-[250px] md:h-[420px] bg-white shadow-[0px_0px_0px_0.9056603908538818px_black/8] overflow-hidden rounded-lg flex flex-col justify-start items-start relative">
               <div className="w-full h-full flex items-center justify-center">
                 <div className="relative w-full h-full overflow-hidden">
                   <div

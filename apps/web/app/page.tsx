@@ -16,7 +16,7 @@ function Badge({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
     <div className="px-[14px] py-[6px] bg-white shadow-[0px_0px_0px_4px_rgba(55,50,47,0.05)] overflow-hidden rounded-[90px] flex justify-start items-center gap-[8px] border border-[rgba(2,6,23,0.08)] shadow-xs">
       <div className="w-[14px] h-[14px] relative overflow-hidden flex items-center justify-center">{icon}</div>
-      <div className="text-center flex justify-center flex-col text-[#37322F] text-xs font-medium leading-3 font-sans">
+      <div className="text-center flex justify-center flex-col text-black/80 text-xs font-medium leading-3 font-sans">
         {text}
       </div>
     </div>
@@ -99,37 +99,33 @@ export default function LandingPage() {
                 </div>
                 <div className="h-6 sm:h-7 md:h-8 flex justify-start items-start gap-2 sm:gap-3">
                   <div className="px-2 sm:px-3 md:px-[14px] py-1 sm:py-[6px] bg-white shadow-[0px_1px_2px_rgba(55,50,47,0.12)] overflow-hidden rounded-full flex justify-center items-center">
-                    <div className="flex flex-col justify-center text-[#37322F] text-xs md:text-[13px] font-medium leading-5 font-sans">
+                    <Link href="/conversations" className="flex flex-col justify-center text-black/80 text-xs md:text-[13px] font-medium leading-5 font-sans">
                       Log in
-                    </div>
+                    </Link>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="pt-16 sm:pt-20 md:pt-24 lg:pt-[216px] pb-8 sm:pb-12 md:pb-16 flex flex-col justify-start items-center px-2 sm:px-4 md:px-8 lg:px-0 w-full sm:pl-0 sm:pr-0 pl-0 pr-0">
+            <div className="pt-16 sm:pt-20 md:pt-24  lg:pt-32 pb-8 sm:pb-12 md:pb-16 flex flex-col justify-start items-center px-2 sm:px-4 md:px-8 lg:px-0 w-full sm:pl-0 sm:pr-0 pl-0 pr-0">
               <div className="w-full max-w-[937px] lg:w-[937px] flex flex-col justify-center items-center gap-3 sm:gap-4 md:gap-5 lg:gap-6">
                 <div className="self-stretch rounded-[3px] flex flex-col justify-center items-center gap-4 sm:gap-5 md:gap-6 lg:gap-8">
-                  <div className="w-full max-w-[748.71px] lg:w-[748.71px] text-center flex justify-center flex-col text-[#37322F] text-[24px] xs:text-[28px] sm:text-[36px] md:text-[52px] lg:text-[80px] font-normal leading-[1.1] sm:leading-[1.15] md:leading-[1.2] lg:leading-24 font-serif px-2 sm:px-4 md:px-0">
-                    AI support that answers instantly
-                    <br />
-                    from your knowledge base
+                  <div className="w-full max-w-[748.71px] lg:w-[748.71px] text-center flex justify-center flex-col text-black/80 text-[24px] xs:text-[28px] sm:text-[36px] md:text-[52px] lg:text-[80px] font-normal leading-[1.1] sm:leading-[1.15] md:leading-[1.2] lg:leading-24 font-serif px-2 sm:px-4 md:px-0">
+                    <p>AI support that works for your team & customers.</p>
                   </div>
                   <div className="w-full max-w-[506.08px] lg:w-[506.08px] text-center flex justify-center flex-col text-[rgba(55,50,47,0.80)] sm:text-lg md:text-xl leading-[1.4] sm:leading-[1.45] md:leading-[1.5] lg:leading-7 font-sans px-2 sm:px-4 md:px-0 lg:text-lg font-medium text-sm">
-                    Deploy an AI support agent that searches your knowledge base,
-                    <br className="hidden sm:block" />
-                    escalates to humans when needed, and resolves issues automatically.
+                    <p>Drop your knowledge base, install the widget, and start</p>
+                    <p>taking conversations in minutes.</p>
                   </div>
                 </div>
               </div>
 
               <div className="w-full max-w-[497px] lg:w-[497px] flex flex-col justify-center items-center gap-6 sm:gap-8 md:gap-10 lg:gap-12 relative z-10 mt-6 sm:mt-8 md:mt-10 lg:mt-12">
                 <div className="backdrop-blur-[8.25px] flex justify-start items-center gap-4">
-                  <div className="h-10 sm:h-11 md:h-12 px-6 sm:px-8 md:px-10 lg:px-12 py-2 sm:py-[6px] relative bg-[#37322F] shadow-[0px_0px_0px_2.5px_rgba(255,255,255,0.08)_inset] overflow-hidden rounded-full flex justify-center items-center">
-                    <div className="w-20 sm:w-24 md:w-28 lg:w-44 h-[41px] absolute left-0 top-[-0.5px] bg-gradient-to-b from-[rgba(255,255,255,0)] to-[rgba(0,0,0,0.10)] mix-blend-multiply"></div>
-                    <div className="flex flex-col justify-center text-white text-sm sm:text-base md:text-[15px] font-medium leading-5 font-sans">
+                  <div className="h-10 sm:h-11 md:h-12 px-6 sm:px-8 md:px-10 lg:px-12 py-2 sm:py-[6px] relative bg-black/80 shadow-[0px_0px_0px_2.5px_rgba(255,255,255,0.08)_inset] overflow-hidden rounded-full flex justify-center items-center">
+                    <Link href="/conversations" className="flex flex-col justify-center text-white text-sm sm:text-base md:text-[15px] font-medium leading-5 font-sans !cursor-pointer">
                       Start for free
-                    </div>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -197,22 +193,22 @@ export default function LandingPage() {
 
                 <div className="flex-1 px-0 sm:px-2 md:px-0 flex flex-col md:flex-row justify-center items-stretch gap-0">
                   <FeatureCard
-                    title="Knowledge base search"
-                    description="AI instantly searches your uploaded documents and knowledge base to answer customer questions accurately."
+                    title="Drop your knowledge"
+                    description="Upload your documents and knowledge base. The AI instantly learns from your content to answer questions accurately."
                     isActive={activeCard === 0}
                     progress={activeCard === 0 ? progress : 0}
                     onClick={() => handleCardClick(0)}
                   />
                   <FeatureCard
-                    title="Smart escalation"
-                    description="Automatically escalates conversations to human agents when the AI can't help or detects frustration."
+                    title="Setup your agent"
+                    description="Install the widget with a single script tag. Customize your AI agent's behavior and appearance to match your brand."
                     isActive={activeCard === 1}
                     progress={activeCard === 1 ? progress : 0}
                     onClick={() => handleCardClick(1)}
                   />
                   <FeatureCard
-                    title="Widget customization"
-                    description="Customize your support widget's colors, logo, and position to match your brand perfectly."
+                    title="Start conversations"
+                    description="Your AI support agent is live. Start taking conversations, manage your inbox, and watch it resolve issues automatically."
                     isActive={activeCard === 2}
                     progress={activeCard === 2 ? progress : 0}
                     onClick={() => handleCardClick(2)}
@@ -236,15 +232,15 @@ export default function LandingPage() {
                     <Badge
                       icon={
                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="1" y="1" width="4" height="4" stroke="#37322F" strokeWidth="1" fill="none" />
-                          <rect x="7" y="1" width="4" height="4" stroke="#37322F" strokeWidth="1" fill="none" />
-                          <rect x="1" y="7" width="4" height="4" stroke="#37322F" strokeWidth="1" fill="none" />
-                          <rect x="7" y="7" width="4" height="4" stroke="#37322F" strokeWidth="1" fill="none" />
+                          <rect x="1" y="1" width="4" height="4" stroke="#333333" strokeWidth="1" fill="none" />
+                          <rect x="7" y="1" width="4" height="4" stroke="#333333" strokeWidth="1" fill="none" />
+                          <rect x="1" y="7" width="4" height="4" stroke="#333333" strokeWidth="1" fill="none" />
+                          <rect x="7" y="7" width="4" height="4" stroke="#333333" strokeWidth="1" fill="none" />
                         </svg>
                       }
                       text="Platform Features"
                     />
-                    <div className="w-full max-w-[598.06px] lg:w-[598.06px] text-center flex justify-center flex-col text-[#49423D] text-xl sm:text-2xl md:text-3xl lg:text-5xl font-semibold leading-tight md:leading-[60px] font-sans tracking-tight">
+                    <div className="w-full max-w-[598.06px] lg:w-[598.06px] text-center flex justify-center flex-col text-black/80 text-xl sm:text-2xl md:text-3xl lg:text-5xl font-semibold leading-tight md:leading-[60px] font-sans tracking-tight">
                       Everything you need for intelligent support
                     </div>
                     <div className="self-stretch text-center text-[#605A57] text-sm sm:text-base font-normal leading-6 sm:leading-7 font-sans">
@@ -270,7 +266,7 @@ export default function LandingPage() {
                   <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-0 border-l border-r border-[rgba(55,50,47,0.12)]">
                     <div className="border-b border-r-0 md:border-r border-[rgba(55,50,47,0.12)] p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-start items-start gap-4 sm:gap-6">
                       <div className="flex flex-col gap-2">
-                        <h3 className="text-[#37322F] text-lg sm:text-xl font-semibold leading-tight font-sans">
+                        <h3 className="text-black/80 text-lg sm:text-xl font-semibold leading-tight font-sans">
                           Smart. Simple. Brilliant.
                         </h3>
                         <p className="text-[#605A57] text-sm md:text-base font-normal leading-relaxed font-sans">
@@ -289,7 +285,7 @@ export default function LandingPage() {
 
                     <div className="border-b border-[rgba(55,50,47,0.12)] p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-start items-start gap-4 sm:gap-6">
                       <div className="flex flex-col gap-2">
-                        <h3 className="text-[#37322F] font-semibold leading-tight font-sans text-lg sm:text-xl">
+                        <h3 className="text-black/80 font-semibold leading-tight font-sans text-lg sm:text-xl">
                           Real-time conversation management
                         </h3>
                         <p className="text-[#605A57] text-sm md:text-base font-normal leading-relaxed font-sans">
@@ -302,7 +298,7 @@ export default function LandingPage() {
 
                     <div className="border-r-0 md:border-r border-[rgba(55,50,47,0.12)] p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-start items-start gap-4 sm:gap-6 bg-transparent">
                       <div className="flex flex-col gap-2">
-                        <h3 className="text-[#37322F] text-lg sm:text-xl font-semibold leading-tight font-sans">
+                        <h3 className="text-black/80 text-lg sm:text-xl font-semibold leading-tight font-sans">
                           Effortless integration
                         </h3>
                         <p className="text-[#605A57] text-sm md:text-base font-normal leading-relaxed font-sans">
@@ -319,7 +315,7 @@ export default function LandingPage() {
 
                     <div className="p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-start items-start gap-4 sm:gap-6">
                       <div className="flex flex-col gap-2">
-                        <h3 className="text-[#37322F] text-lg sm:text-xl font-semibold leading-tight font-sans">
+                        <h3 className="text-black/80 text-lg sm:text-xl font-semibold leading-tight font-sans">
                           Conversation analytics
                         </h3>
                         <p className="text-[#605A57] text-sm md:text-base font-normal leading-relaxed font-sans">
@@ -392,13 +388,13 @@ function FeatureCard({
       {isActive && (
         <div className="absolute top-0 left-0 w-full h-0.5 bg-[rgba(50,45,43,0.08)]">
           <div
-            className="h-full bg-[#322D2B] transition-all duration-100 ease-linear"
+            className="h-full bg-black/80 transition-all duration-100 ease-linear"
             style={{ width: `${progress}%` }}
           />
         </div>
       )}
 
-      <div className="self-stretch flex justify-center flex-col text-[#49423D] text-sm md:text-sm font-semibold leading-6 md:leading-6 font-sans">
+      <div className="self-stretch flex justify-center flex-col text-black/80 text-sm md:text-sm font-semibold leading-6 md:leading-6 font-sans">
         {title}
       </div>
       <div className="self-stretch text-[#605A57] text-[13px] md:text-[13px] font-normal leading-[22px] md:leading-[22px] font-sans">
