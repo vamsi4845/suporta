@@ -273,7 +273,7 @@ export function AnimatedCharactersWrapper({ children }: { children: React.ReactN
               {/* <Sparkles className="size-4" /> */}
               <Image src="/logo.svg" alt="logo" width={32} height={32}/>
             </div>
-            <span>Supportly</span>
+            <span>Suporta</span>
           </div>
         </div>
 
@@ -452,7 +452,7 @@ export function AnimatedCharactersWrapper({ children }: { children: React.ReactN
             <div className="size-8 rounded-lg bg-primary/10 flex items-center justify-center">
               <Image src="/logo.svg" alt="logo" width={32} height={32}/>
             </div>
-            <span>Supportly</span>
+            <span>Suporta</span>
           </div>
           {children}
         </div>

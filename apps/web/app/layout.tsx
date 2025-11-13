@@ -18,7 +18,7 @@ const fontMono = Geist_Mono({
 
 
 export const metadata: Metadata = {
-  title: "Supportly - Effortless Customer Support",
+  title: "Suporta - Effortless Customer Support",
   description:"AI support that works for your team & customers."
 }
 

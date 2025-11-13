@@ -52,7 +52,7 @@ export function DashboardSidebar(){
                         <SidebarMenuButton asChild size="lg">
                         <div className="flex items-center gap-2 py-1">
                             <Image src="/logo.svg" alt="logo" width={32} height={32}/>
-                            <h2 className="text-2xl font-bold">Supportly</h2>
+                            <h2 className="text-2xl font-bold">Suporta</h2>
                         </div>
                         </SidebarMenuButton>
                     </SidebarMenuItem>

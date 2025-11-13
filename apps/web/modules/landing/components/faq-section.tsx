@@ -9,9 +9,9 @@ interface FAQItem {
 
 const faqData: FAQItem[] = [
   {
-    question: "What is Supportly and who is it for?",
+    question: "What is Suporta and who is it for?",
     answer:
-      "Supportly is an AI-powered support agent platform designed for businesses that want to provide instant, accurate customer support. It's perfect for SaaS companies, e-commerce stores, and any business with a knowledge base that wants to automate customer support while maintaining the option for human escalation.",
+      "Suporta is an AI-powered support agent platform designed for businesses that want to provide instant, accurate customer support. It's perfect for SaaS companies, e-commerce stores, and any business with a knowledge base that wants to automate customer support while maintaining the option for human escalation.",
   },
   {
     question: "How does the AI support agent work?",

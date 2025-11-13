@@ -46,7 +46,7 @@ export function IntegrationsInstructions() {
                         <div className="space-y-1">
                     <h2 className="text-2xl">Install the widget</h2>
                     <p className="text-sm text-muted-foreground">
-                        Get the Supportly widget running on your website in under a minute.
+                        Get the Supporta widget running on your website in under a minute.
                     </p>
                         </div>
                         <div className="space-y-1">
