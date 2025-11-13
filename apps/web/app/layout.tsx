@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google"
 import { Providers } from "@/components/providers"
 import { ClerkProvider } from '@clerk/nextjs'
 import { Analytics } from "@vercel/analytics/react"
+import { Metadata } from "next"
 
 const fontSans = Geist({
   subsets: ["latin"],
@@ -14,6 +15,12 @@ const fontMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
 })
+
+
+export const metadata: Metadata = {
+  title: "Supportly - Effortless Customer Support",
+  description:"AI support that works for your team & customers."
+}
 
 export default function RootLayout({
   children,
