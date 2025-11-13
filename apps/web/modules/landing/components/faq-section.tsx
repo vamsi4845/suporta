@@ -21,7 +21,7 @@ const faqData: FAQItem[] = [
   {
     question: "How do I integrate the widget into my website?",
     answer:
-      "Integration is simple! After creating your account and organization, you'll get a script tag with your unique organization ID. Just copy and paste this single line of code into your website's HTML, and the support widget will appear on your site. No complex setup or configuration required.",
+      "Integration is simple! After creating your account and organization, you'll get a script with your unique organization ID. Just copy and paste this single line of code into your website's HTML, and the support widget will appear on your site. No complex setup or configuration required.",
   },
   {
     question: "Can I customize the widget appearance?",

@@ -5,7 +5,7 @@ export function SignInView() {
     return (
         <div>
             <AnimatedCharactersWrapper>
-                <SignIn routing="hash" forceRedirectUrl="/conversations"  />
+                <SignIn routing="hash" forceRedirectUrl="/inbox"  />
             </AnimatedCharactersWrapper>
         </div>
     )

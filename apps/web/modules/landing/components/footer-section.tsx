@@ -1,21 +1,19 @@
+import Link from "next/link"
+import { LogoName } from "./logo-name"
+
 export default function FooterSection() {
   return (
-    <div className="w-full pt-10 flex flex-col justify-start items-start">
-      {/* Main Footer Content */}
-      <div className="self-stretch h-auto flex flex-col md:flex-row justify-between items-stretch pr-0 pb-8 pt-0">
-        <div className="h-auto p-4 md:p-8 flex flex-col justify-start items-start gap-8">
-          {/* Brand Section */}
-          <div className="self-stretch flex justify-start items-center gap-3">
-            <div className="text-center text-[#49423D] text-xl font-semibold leading-4 font-sans">Brillance</div>
-          </div>
-          <div className="text-[rgba(73,66,61,0.90)] text-sm font-medium leading-[18px] font-sans">
-            Coding made effortless
+    <div className="w-full pt-4 flex flex-col justify-start items-start">
+      <div className="self-stretch h-auto flex flex-col md:flex-row justify-between items-stretch pr-0 pt-0">
+        <div className="w-full h-auto !p-4 md:!px-8 flex justify-between items-start gap-8">
+          <div className="flex flex-col gap-1">
+            <div className="self-stretch flex justify-start items-center gap-3">
+              <LogoName />
+            </div>
           </div>
 
-          {/* Social Media Icons */}
           <div className="flex justify-start items-start gap-4">
-            {/* Twitter/X Icon */}
-            <div className="w-6 h-6 relative overflow-hidden">
+            <a href="https://twitter.com/vamsisai696" target="_blank" rel="noopener noreferrer" className="w-6 h-6 relative overflow-hidden hover:opacity-70 transition-opacity">
               <div className="w-6 h-6 left-0 top-0 absolute flex items-center justify-center">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -24,10 +22,9 @@ export default function FooterSection() {
                   />
                 </svg>
               </div>
-            </div>
+            </a>
 
-            {/* LinkedIn Icon */}
-            <div className="w-6 h-6 relative overflow-hidden">
+            <a href="https://linkedin.com/in/vamsisai" target="_blank" rel="noopener noreferrer" className="w-6 h-6 relative overflow-hidden hover:opacity-70 transition-opacity">
               <div className="w-6 h-6 left-0 top-0 absolute flex items-center justify-center">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -36,10 +33,9 @@ export default function FooterSection() {
                   />
                 </svg>
               </div>
-            </div>
+            </a>
 
-            {/* GitHub Icon */}
-            <div className="w-6 h-6 relative overflow-hidden">
+            <a href="https://github.com/vamsi4845" target="_blank" rel="noopener noreferrer" className="w-6 h-6 relative overflow-hidden hover:opacity-70 transition-opacity">
               <div className="w-6 h-6 left-0 top-0 absolute flex items-center justify-center">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -48,86 +44,64 @@ export default function FooterSection() {
                   />
                 </svg>
               </div>
-            </div>
+            </a>
           </div>
         </div>
 
-        {/* Navigation Links */}
-        <div className="self-stretch p-4 md:p-8 flex flex-col sm:flex-row flex-wrap justify-start sm:justify-between items-start gap-6 md:gap-8">
-          {/* Product Column */}
-
-          {/* Product Column */}
+        {/* <div className="self-stretch p-4 md:p-8 flex flex-col sm:flex-row flex-wrap justify-start sm:justify-between items-start gap-6 md:gap-8">
           <div className="flex flex-col justify-start items-start gap-3 flex-1 min-w-[120px]">
             <div className="self-stretch text-[rgba(73,66,61,0.50)] text-sm font-medium leading-5 font-sans">
               Product
             </div>
             <div className="flex flex-col justify-end items-start gap-2">
-              <div className="text-[#49423D] text-sm font-normal leading-5 font-sans cursor-pointer hover:text-[#37322F] transition-colors">
+              <Link href="#features" className="text-[#49423D] text-sm font-normal leading-5 font-sans cursor-pointer hover:text-[#37322F] transition-colors">
                 Features
-              </div>
-              <div className="text-[#49423D] text-sm font-normal leading-5 font-sans cursor-pointer hover:text-[#37322F] transition-colors">
-                Pricing
-              </div>
-              <div className="text-[#49423D] text-sm font-normal leading-5 font-sans cursor-pointer hover:text-[#37322F] transition-colors">
+              </Link>
+              <Link href="#setup" className="text-[#49423D] text-sm font-normal leading-5 font-sans cursor-pointer hover:text-[#37322F] transition-colors">
+                Setup
+              </Link>
+              <Link href="/integrations" className="text-[#49423D] text-sm font-normal leading-5 font-sans cursor-pointer hover:text-[#37322F] transition-colors">
                 Integrations
-              </div>
-              <div className="text-[#49423D] text-sm font-normal leading-5 font-sans cursor-pointer hover:text-[#37322F] transition-colors">
-                Real-time Previews
-              </div>
-              <div className="text-[#49423D] text-sm font-normal leading-5 font-sans cursor-pointer hover:text-[#37322F] transition-colors">
-                Multi-Agent Coding
-              </div>
+              </Link>
+              <Link href="/conversations" className="text-[#49423D] text-sm font-normal leading-5 font-sans cursor-pointer hover:text-[#37322F] transition-colors">
+                Conversations
+              </Link>
+              <Link href="/files" className="text-[#49423D] text-sm font-normal leading-5 font-sans cursor-pointer hover:text-[#37322F] transition-colors">
+                Knowledge Base
+              </Link>
             </div>
           </div>
 
-          {/* Company Column */}
           <div className="flex flex-col justify-start items-start gap-3 flex-1 min-w-[120px]">
             <div className="text-[rgba(73,66,61,0.50)] text-sm font-medium leading-5 font-sans">Company</div>
             <div className="flex flex-col justify-center items-start gap-2">
-              <div className="text-[#49423D] text-sm font-normal leading-5 font-sans cursor-pointer hover:text-[#37322F] transition-colors">
-                About us
-              </div>
-              <div className="text-[#49423D] text-sm font-normal leading-5 font-sans cursor-pointer hover:text-[#37322F] transition-colors">
-                Our team
-              </div>
-              <div className="text-[#49423D] text-sm font-normal leading-5 font-sans cursor-pointer hover:text-[#37322F] transition-colors">
-                Careers
-              </div>
-              <div className="text-[#49423D] text-sm font-normal leading-5 font-sans cursor-pointer hover:text-[#37322F] transition-colors">
-                Brand
-              </div>
-              <div className="text-[#49423D] text-sm font-normal leading-5 font-sans cursor-pointer hover:text-[#37322F] transition-colors">
-                Contact
-              </div>
+              <Link href="#faq" className="text-[#49423D] text-sm font-normal leading-5 font-sans cursor-pointer hover:text-[#37322F] transition-colors">
+                About
+              </Link>
+              <Link href="/billing" className="text-[#49423D] text-sm font-normal leading-5 font-sans cursor-pointer hover:text-[#37322F] transition-colors">
+                Pricing
+              </Link>
+              <Link href="/conversations" className="text-[#49423D] text-sm font-normal leading-5 font-sans cursor-pointer hover:text-[#37322F] transition-colors">
+                Dashboard
+              </Link>
             </div>
           </div>
 
-          {/* Resources Column */}
           <div className="flex flex-col justify-start items-start gap-3 flex-1 min-w-[120px]">
             <div className="text-[rgba(73,66,61,0.50)] text-sm font-medium leading-5 font-sans">Resources</div>
-            <div className="flex flex-col justify-center items-center gap-2">
-              <div className="self-stretch text-[#49423D] text-sm font-normal leading-5 font-sans cursor-pointer hover:text-[#37322F] transition-colors">
-                Terms of use
-              </div>
-              <div className="self-stretch text-[#49423D] text-sm font-normal leading-5 font-sans cursor-pointer hover:text-[#37322F] transition-colors">
-                API Reference
-              </div>
-              <div className="self-stretch text-[#49423D] text-sm font-normal leading-5 font-sans cursor-pointer hover:text-[#37322F] transition-colors">
+            <div className="flex flex-col justify-center items-start gap-2">
+              <Link href="#features" className="text-[#49423D] text-sm font-normal leading-5 font-sans cursor-pointer hover:text-[#37322F] transition-colors">
                 Documentation
-              </div>
-              <div className="self-stretch text-[#49423D] text-sm font-normal leading-5 font-sans cursor-pointer hover:text-[#37322F] transition-colors">
-                Community
-              </div>
-              <div className="self-stretch text-[#49423D] text-sm font-normal leading-5 font-sans cursor-pointer hover:text-[#37322F] transition-colors">
+              </Link>
+              <Link href="/conversations" className="text-[#49423D] text-sm font-normal leading-5 font-sans cursor-pointer hover:text-[#37322F] transition-colors">
                 Support
-              </div>
+              </Link>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
-      {/* Bottom Section with Pattern */}
-      <div className="self-stretch h-12 relative overflow-hidden border-t border-b border-[rgba(55,50,47,0.12)]">
+      {/* <div className="self-stretch h-12 relative overflow-hidden border-t border-b border-[rgba(55,50,47,0.12)]">
         <div className="absolute inset-0 w-full h-full overflow-hidden">
           <div className="w-full h-full relative">
             {Array.from({ length: 400 }).map((_, i) => (
@@ -144,7 +118,7 @@ export default function FooterSection() {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }

@@ -11,13 +11,13 @@ import { CommandMenu } from "./command-menu";
 
 const navItems =[
     {
-        title: "Conversations",
-        url: "/conversations",
+        title: "Inbox",
+        url: "/inbox",
         icon: "/msgs.svg"
     },
     {
-        title: "Knowledge Base",
-        url: "/files",
+        title: "Content",
+        url: "/content",
         icon: "/book-open.svg"
     },
     {
@@ -26,9 +26,14 @@ const navItems =[
         icon:"/code-editor.svg"
     },
     {
-        title: "Widget Customization",
+        title: "Customization",
         url: "/customization",
         icon: "/magic-wand-sparkle.svg",
+    },
+    {
+        title: "Analytics",
+        url: "/analytics",
+        icon: "/analytics-icon.svg",
     },
 ]
 
@@ -66,10 +71,10 @@ export function DashboardSidebar(){
                         <SidebarMenu>
                             {navItems?.map((item) => (
                                 <SidebarMenuItem key={item.title}>
-                                    <SidebarMenuButton asChild  tooltip={item.title} isActive={isActive(item.url)} className={cn(isActive(item.url) && "bg-background border border-sidebar-border text-background rounded-xl")}>
-                                        <Link href={item.url}>
+                                    <SidebarMenuButton asChild disabled={item.title === "Analytics"} tooltip={item.title} isActive={isActive(item.url)} className={cn(isActive(item.url) && "bg-background border border-sidebar-border text-background rounded-xl")}>
+                                        <Link href={item.url} className={cn(item.title === "Analytics" && "pointer-events-none opacity-80")}>
                                             <Image src={item.icon} alt={item.title} width={24} height={24}/>
-                                            <span>{item.title}</span>
+                                            <span>{item.title} {item.title === "Analytics" && <span className="text-xs text-muted-foreground">(soon)</span>}</span>
                                         </Link>
                                     </SidebarMenuButton>
                                 </SidebarMenuItem>

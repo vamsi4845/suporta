@@ -21,13 +21,13 @@ export default function DocumentationSection() {
 
   const cards = [
     {
-      title: "Upload your knowledge base",
-      description: "Add your documentation, FAQs, and support materials.\nThe AI searches through everything instantly.",
+      title: "Upload your content",
+      description: "Add your documents and knowledge base. The AI instantly learns from your content to answer questions accurately.",
       image: "/knowledge.png",
     },
     {
       title: "Add widget to your website",
-      description: "Copy a single script tag with your organization ID\nand paste it into your HTML. That's it.",
+      description: "Copy the line of code with your organization ID\nand paste it into your HTML head section. That's it.",
       image: "/integrations.png",
     },
     {

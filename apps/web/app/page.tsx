@@ -2,15 +2,18 @@
 
 import type React from "react"
 
-import { useEffect, useRef, useState } from "react"
 import CTASection from "@/modules/landing/components/cta-section"
 import DocumentationSection from "@/modules/landing/components/documentation-section"
 import EffortlessIntegration from "@/modules/landing/components/effortless-integration-updated"
 import FAQSection from "@/modules/landing/components/faq-section"
+import { LogoName } from "@/modules/landing/components/logo-name"
 import NumbersThatSpeak from "@/modules/landing/components/numbers-that-speak"
 import SmartSimpleBrilliant from "@/modules/landing/components/smart-simple-brilliant"
+import { useOrganization } from "@clerk/nextjs"
 import Image from "next/image"
 import Link from "next/link"
+import { useEffect, useRef, useState } from "react"
+import FooterSection from "@/modules/landing/components/footer-section"
 
 function Badge({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
@@ -27,7 +30,7 @@ export default function LandingPage() {
   const [activeCard, setActiveCard] = useState(0)
   const [progress, setProgress] = useState(0)
   const mountedRef = useRef(true)
-
+  const {organization} = useOrganization()
   useEffect(() => {
     mountedRef.current = true
     
@@ -79,11 +82,7 @@ export default function LandingPage() {
 
               <div className="w-full max-w-[calc(100%-32px)] sm:max-w-[calc(100%-48px)] md:max-w-[calc(100%-64px)] lg:max-w-[700px] lg:w-[700px] h-10 sm:h-11 md:h-12 py-1.5 sm:py-2 px-3 sm:px-4 md:px-4 pr-2 sm:pr-3 bg-[#F7F5F3] backdrop-blur-sm shadow-[0px_0px_0px_2px_white] overflow-hidden rounded-[50px] flex justify-between items-center relative z-30">
                 <div className="flex justify-center items-center">
-                  <div className="flex justify-start items-center">
-                    <div className="flex flex-col justify-center text-[#2F3037] text-sm sm:text-base md:text-lg lg:text-xl font-medium leading-5 font-sans">
-                      Supportly
-                    </div>
-                  </div>
+                  <LogoName />
                   <div className="pl-3 sm:pl-4 md:pl-5 lg:pl-5 flex justify-start items-start hidden sm:flex flex-row gap-2 sm:gap-3 md:gap-4 lg:gap-4">
                     <div className="flex justify-start items-center">
                       <Link href="#features" className="flex flex-col justify-center text-[rgba(49,45,43,0.80)] text-xs md:text-[13px] font-medium leading-[14px] font-sans">
@@ -91,23 +90,28 @@ export default function LandingPage() {
                       </Link>
                     </div>
                     <div className="flex justify-start items-center">
+                      <Link href="#setup" className="flex flex-col justify-center text-[rgba(49,45,43,0.80)] text-xs md:text-[13px] font-medium leading-[14px] font-sans">
+                        Setup
+                      </Link>
+                    </div>
+                    <div className="flex justify-start items-center">
                       <Link href="#faq" className="flex flex-col justify-center text-[rgba(49,45,43,0.80)] text-xs md:text-[13px] font-medium leading-[14px] font-sans">
-                        FAQ
+                        About
                       </Link>
                     </div>
                   </div>
                 </div>
                 <div className="h-6 sm:h-7 md:h-8 flex justify-start items-start gap-2 sm:gap-3">
-                  <div className="px-2 sm:px-3 md:px-[14px] py-1 sm:py-[6px] bg-white shadow-[0px_1px_2px_rgba(55,50,47,0.12)] overflow-hidden rounded-full flex justify-center items-center">
-                    <Link href="/conversations" className="flex flex-col justify-center text-black/80 text-xs md:text-[13px] font-medium leading-5 font-sans">
-                      Log in
+                  <div className="px-2 sm:px-3 md:px-[14px] py-1 sm:py-[6px] bg-black/80 shadow-[0px_1px_2px_rgba(55,50,47,0.12)] overflow-hidden rounded-full flex justify-center items-center">
+                    <Link href="/inbox" className="flex flex-col justify-center text-white text-xs md:text-[13px] font-medium leading-5 font-sans">
+                      {organization ? "Dashboard" : "Log in"}
                     </Link>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="pt-16 sm:pt-20 md:pt-24  lg:pt-32 pb-8 sm:pb-12 md:pb-16 flex flex-col justify-start items-center px-2 sm:px-4 md:px-8 lg:px-0 w-full sm:pl-0 sm:pr-0 pl-0 pr-0">
+            <div className="pt-16 sm:pt-20 md:pt-24  lg:pt-32  flex flex-col justify-start items-center px-2 sm:px-4 md:px-8 lg:px-0 w-full sm:pl-0 sm:pr-0 pl-0 pr-0">
               <div className="w-full max-w-[937px] lg:w-[937px] flex flex-col justify-center items-center gap-3 sm:gap-4 md:gap-5 lg:gap-6">
                 <div className="self-stretch rounded-[3px] flex flex-col justify-center items-center gap-4 sm:gap-5 md:gap-6 lg:gap-8">
                   <div className="w-full max-w-[748.71px] lg:w-[748.71px] text-center flex justify-center flex-col text-black/80 text-[24px] xs:text-[28px] sm:text-[36px] md:text-[52px] lg:text-[80px] font-normal leading-[1.1] sm:leading-[1.15] md:leading-[1.2] lg:leading-24 font-serif px-2 sm:px-4 md:px-0">
@@ -123,7 +127,7 @@ export default function LandingPage() {
               <div className="w-full max-w-[497px] lg:w-[497px] flex flex-col justify-center items-center gap-6 sm:gap-8 md:gap-10 lg:gap-12 relative z-10 mt-6 sm:mt-8 md:mt-10 lg:mt-12">
                 <div className="backdrop-blur-[8.25px] flex justify-start items-center gap-4">
                   <div className="h-10 sm:h-11 md:h-12 px-6 sm:px-8 md:px-10 lg:px-12 py-2 sm:py-[6px] relative bg-black/80 shadow-[0px_0px_0px_2.5px_rgba(255,255,255,0.08)_inset] overflow-hidden rounded-full flex justify-center items-center">
-                    <Link href="/conversations" className="flex flex-col justify-center text-white text-sm sm:text-base md:text-[15px] font-medium leading-5 font-sans !cursor-pointer">
+                    <Link href="/inbox" className="flex flex-col justify-center text-white text-sm sm:text-base md:text-[15px] font-medium leading-5 font-sans !cursor-pointer">
                       Start for free
                     </Link>
                   </div>
@@ -201,7 +205,7 @@ export default function LandingPage() {
                   />
                   <FeatureCard
                     title="Setup your agent"
-                    description="Install the widget with a single script tag. Customize your AI agent's behavior and appearance to match your brand."
+                    description="Install the widget with a single line of code. Customize your AI agent's behavior and appearance to match your brand."
                     isActive={activeCard === 1}
                     progress={activeCard === 1 ? progress : 0}
                     onClick={() => handleCardClick(1)}
@@ -275,10 +279,6 @@ export default function LandingPage() {
                       </div>
                       <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] rounded-lg flex items-center justify-center overflow-hidden">
                         <SmartSimpleBrilliant
-                          width="100%"
-                          height="100%"
-                          theme="light"
-                          className="scale-50 sm:scale-65 md:scale-75 lg:scale-90"
                         />
                       </div>
                     </div>
@@ -293,6 +293,7 @@ export default function LandingPage() {
                         </p>
                       </div>
                       <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] rounded-lg flex overflow-hidden text-right items-center justify-center">
+                        <Image src="/ai-conversations.png" alt="Conversation Management" width={400} height={250} className="w-full h-full object-contain" />
                       </div>
                     </div>
 
@@ -302,14 +303,13 @@ export default function LandingPage() {
                           Effortless integration
                         </h3>
                         <p className="text-[#605A57] text-sm md:text-base font-normal leading-relaxed font-sans">
-                          Add a single script tag to your website and your AI support agent is live. No complex setup required.
+                          Add a single line of code  to your website and your AI support agent is live. No complex setup required.
                         </p>
                       </div>
                       <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] rounded-lg flex overflow-hidden justify-center items-center relative bg-transparent">
                         <div className="w-full h-full flex items-center justify-center bg-transparent">
                           <EffortlessIntegration width={400} height={250} className="max-w-full max-h-full" />
                         </div>
-                        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#F7F5F3] to-transparent pointer-events-none"></div>
                       </div>
                     </div>
 
@@ -322,16 +322,10 @@ export default function LandingPage() {
                           Track resolution rates, escalation patterns, and customer satisfaction with detailed conversation insights.
                         </p>
                       </div>
-                      <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] rounded-lg flex overflow-hidden items-center justify-center relative">
+                      <div className="w-full h-[200px] sm:h-[250px] md:h-[280px] rounded-lg flex overflow-hidden items-center justify-center relative">
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <NumbersThatSpeak
-                            width="100%"
-                            height="100%"
-                            theme="light"
-                            className="w-full h-full object-contain"
-                          />
+                          <Image src="/analytics.png" alt="Conversation Analytics" width={400} height={280} className="w-full h-full object-contain" />
                         </div>
-                        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#F7F5F3] to-transparent pointer-events-none"></div>
                       </div>
                     </div>
                   </div>
@@ -354,6 +348,7 @@ export default function LandingPage() {
               <FAQSection />
 
               <CTASection />
+              <FooterSection/>
 
             </div>
           </div>

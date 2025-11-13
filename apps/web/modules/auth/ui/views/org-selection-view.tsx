@@ -7,8 +7,8 @@ export function OrgSelectionView(){
     return (
         <AnimatedCharactersWrapper>
             <OrganizationList
-                afterCreateOrganizationUrl="/conversations"
-                afterSelectOrganizationUrl="/conversations"
+                afterCreateOrganizationUrl="/inbox"
+                afterSelectOrganizationUrl="/inbox"
                 hidePersonal
                 skipInvitationScreen
                 hideSlug

@@ -4,7 +4,7 @@ import AnimatedCharactersWrapper from "@/modules/auth/ui/components/animated-cha
 export function SignUpView() {
     return (
         <AnimatedCharactersWrapper>
-            <SignUp routing="hash" forceRedirectUrl="/conversations" />
+            <SignUp routing="hash" forceRedirectUrl="/inbox" />
         </AnimatedCharactersWrapper>
     )
 }

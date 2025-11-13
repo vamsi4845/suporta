@@ -454,7 +454,6 @@ export function AnimatedCharactersWrapper({ children }: { children: React.ReactN
             </div>
             <span>Supportly</span>
           </div>
-          {/* <SignIn routing="hash" forceRedirectUrl="/conversations" /> */}
           {children}
         </div>
       </div>

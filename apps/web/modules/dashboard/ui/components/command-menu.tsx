@@ -39,14 +39,14 @@ type CommandLinkItem = {
 
 const NAVIGATION_LINKS: CommandLinkItem[] = [
   {
-    title: "Conversations",
-    href: "/conversations",
+    title: "Inbox",
+    href: "/inbox",
     iconImage: "/msgs.svg",
     keywords: ["messages", "chat", "conversation"],
   },
   {
-    title: "Knowledge Base",
-    href: "/files",
+    title: "Content",
+    href: "/content",
     iconImage: "/book-open.svg",
     keywords: ["files", "documents", "knowledge", "docs"],
   },
@@ -57,7 +57,7 @@ const NAVIGATION_LINKS: CommandLinkItem[] = [
     keywords: ["integrate", "connect", "api"],
   },
   {
-    title: "Widget Customization",
+    title: "Customization",
     href: "/customization",
     iconImage: "/magic-wand-sparkle.svg",
     keywords: ["widget", "customize", "settings", "config"],

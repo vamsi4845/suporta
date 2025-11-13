@@ -73,10 +73,10 @@ export function ConversationsPanel() {
                         const country = getCountryFromTimeZone(conversation.contactSession.metadata?.timezone);
                         const countryFlagUrl = country?.code ? getCountryFlagUrl(country.code) : undefined;
                         return (
-                            <Link key={conversation._id} href={`/conversations/${conversation._id}`} 
-                            className={cn("relative flex cursor-pointer items-start gap-3 border-b p-4 py-5 tex-sm leading-tight hover:bg-accent", pathname === `/conversations/${conversation._id}` && "bg-accent text-accent-foreground")}>
+                            <Link key={conversation._id} href={`/inbox/${conversation._id}`} 
+                            className={cn("relative flex cursor-pointer items-start gap-3 border-b p-4 py-5 tex-sm leading-tight hover:bg-accent", pathname === `/inbox/${conversation._id}` && "bg-accent text-accent-foreground")}>
                                 <div className={cn("-translate-y-1/2 absolute top-1/2 left-0 h-[64%] w-1 rounded-r-full bg-neutral-300 opacity-0 transition-opacity",
-                                    pathname === `/conversations/${conversation._id}` && "opacity-100")}/>
+                                    pathname === `/inbox/${conversation._id}` && "opacity-100")}/>
                                     <DicebearAvatar seed={conversation.contactSession._id} badgeImageUrl={countryFlagUrl} size={40} className="shrink-0" />
                                     <div className="flex-1">
                                         <div className="flex w-full items-center gap-2">
