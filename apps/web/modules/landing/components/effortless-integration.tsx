@@ -1,3 +1,4 @@
+import Image from "next/image"
 import type React from "react"
 
 interface EffortlessIntegrationProps {
@@ -7,66 +8,398 @@ interface EffortlessIntegrationProps {
   height?: number | string
   /** Optional className to pass to root */
   className?: string
-  /** Theme palette */
-  theme?: "light" | "dark"
 }
 
 /**
  * Effortless Integration – Service integration constellation
- * Generated from Figma via MCP with exact measurements (482×300px)
+ * Three concentric rings with logos positioned on ring axes
  */
-const EffortlessIntegration: React.FC<EffortlessIntegrationProps> = ({
-  width = 482,
-  height = 300,
-  className = "",
-  theme = "dark",
-}) => {
-  // Design tokens (derived from Figma local variables)
-  const themeVars =
-    theme === "light"
-      ? {
-          "--ei-background": "#f8f9fa",
-          "--ei-center-bg": "#37322f",
-          "--ei-center-text": "#ffffff",
-        }
-      : ({
-          "--ei-background": "#1f2937",
-          "--ei-center-bg": "#37322f",
-          "--ei-center-text": "#ffffff",
-        } as React.CSSProperties)
+const EffortlessIntegration: React.FC<EffortlessIntegrationProps> = ({ width = 482, height = 300, className = "" }) => {
+  const centerX = 250
+  const centerY = 179
+  const rings = [
+    { radius: 80, logos: 2 }, // Inner ring - 2 logos
+    { radius: 120, logos: 3 }, // Middle ring - 3 logos
+    { radius: 160, logos: 2 }, // Outer ring - 2 logos
+  ]
 
-  const imgFrame2147223198 = "/placeholder.svg?height=300&width=482"
-  const imgGroup12006 = "/placeholder.svg?height=358&width=500"
-  const imgGroup12007 = "/placeholder.svg?height=600&width=600"
-  const imgEllipse274 = "/placeholder.svg?height=714&width=677"
-  const imgGroup = "/placeholder.svg?height=28&width=28"
-  const imgFrame2147223251 = "/placeholder.svg?height=42&width=42"
-  const imgFrame = "/placeholder.svg?height=23&width=27"
-  const imgFrame1 = "/placeholder.svg?height=30&width=25"
-  const imgGroup12003 = "/placeholder.svg?height=18&width=18"
-  const imgGroup1 = "/placeholder.svg?height=30&width=20"
-  const imgGroup2 = "/placeholder.svg?height=30&width=20"
-  const imgFrame2 = "/placeholder.svg?height=31&width=29"
-  const imgFrame2147223245 = "/placeholder.svg?height=42&width=42"
-  const imgFrame3 = "/placeholder.svg?height=24&width=24"
+  const getPositionOnRing = (ringRadius: number, angle: number) => ({
+    x: centerX + ringRadius * Math.cos(angle),
+    y: centerY + ringRadius * Math.sin(angle),
+  })
 
   return (
     <div
       className={className}
-      style={
-        {
-          width,
-          height,
-          position: "relative",
-          background: "transparent",
-          ...themeVars,
-        } as React.CSSProperties
-      }
-      role="img"
-      aria-label="Effortless integration constellation with complex background patterns"
+      style={{
+        width,
+        height,
+        position: "relative",
+        overflow: "hidden",
+        maskImage: "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)",
+        WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)",
+      }}
     >
-      {/* Exact Figma structure with proper masking and background patterns */}
-      
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background:
+            "linear-gradient(to bottom, rgba(255,255,255,0.1) 0%, transparent 20%, transparent 80%, rgba(255,255,255,0.1) 100%)",
+          pointerEvents: "none",
+          zIndex: 10,
+        }}
+      />
+
+      {/* Outer ring */}
+      <div
+        style={{
+          position: "absolute",
+          left: "50%",
+          top: "50%",
+          transform: "translate(-50%, -50%)",
+          width: "320px",
+          height: "320px",
+          borderRadius: "50%",
+          border: "1px solid rgba(55, 50, 47, 0.2)",
+          opacity: 0.8,
+        }}
+      />
+      {/* Middle ring */}
+      <div
+        style={{
+          position: "absolute",
+          left: "50%",
+          top: "50%",
+          transform: "translate(-50%, -50%)",
+          width: "240px",
+          height: "240px",
+          borderRadius: "50%",
+          border: "1px solid rgba(55, 50, 47, 0.25)",
+          opacity: 0.7,
+        }}
+      />
+      {/* Inner ring */}
+      <div
+        style={{
+          position: "absolute",
+          left: "50%",
+          top: "50%",
+          transform: "translate(-50%, -50%)",
+          width: "160px",
+          height: "160px",
+          borderRadius: "50%",
+          border: "1px solid rgba(55, 50, 47, 0.3)",
+          opacity: 0.6,
+        }}
+      />
+
+      {/* Company logos positioned systematically on ring axes */}
+      <div
+        style={{
+          width: "500px",
+          height: "358px",
+          left: "50%",
+          top: "50%",
+          transform: "translate(-50%, -50%)",
+          position: "absolute",
+        }}
+      >
+        {/* Central hub */}
+        <div
+          style={{
+            width: "72px",
+            height: "72px",
+            left: `${centerX - 36}px`,
+            top: `${centerY - 36}px`,
+            position: "absolute",
+            background: "#292929",
+            boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.15)",
+            borderRadius: "99px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontFamily: "'Inter', sans-serif",
+            fontWeight: 700,
+            fontSize: "32px",
+            color: "#ffffff",
+          }}
+        >
+          <Image src="/logo.svg" alt="logo" width={32} height={32} />
+        </div>
+
+        {/* GitHub - 180° (left) */}
+        <div
+          style={{
+            width: "32px",
+            height: "32px",
+            left: `${getPositionOnRing(80, Math.PI).x - 16}px`,
+            top: `${getPositionOnRing(80, Math.PI).y - 16}px`,
+            position: "absolute",
+            background: "white",
+            boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.15)",
+            borderRadius: "50%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
+            alt="HTML"
+            style={{
+              width: "18px",
+              height: "18px",
+              // filter: "brightness(0) invert(1)",
+            }}
+          />
+        </div>
+
+        {/* Slack - 0° (right) */}
+        <div
+          style={{
+            width: "32px",
+            height: "32px",
+            left: `${getPositionOnRing(80, 0).x - 16}px`,
+            top: `${getPositionOnRing(80, 0).y - 16}px`,
+            position: "absolute",
+            background: "#23272f",
+            boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.15)",
+            borderRadius: "50%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <img
+            src="https://cdn.simpleicons.org/react?viewbox=auto&size=20"
+            alt="React"
+            style={{
+              width: "18px",
+              height: "18px",
+            }}
+          />
+        </div>
+
+        {/* Figma - 315° (top-right) */}
+        <div
+          style={{
+            width: "32px",
+            height: "32px",
+            left: `${getPositionOnRing(120, -Math.PI / 4).x - 16}px`,
+            top: `${getPositionOnRing(120, -Math.PI / 4).y - 16}px`,
+            position: "absolute",
+            background: "black",
+            boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.15)",
+            borderRadius: "50%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <img src="https://cdn.simpleicons.org/javascript?viewbox=auto&size=20"
+            alt="JavaScript"
+            style={{
+              width: "16px",
+              height: "16px",
+            }}
+          />
+        </div>
+
+        {/* Discord - 135° (bottom-left) */}
+        <div
+          style={{
+            width: "32px",
+            height: "32px",
+            left: `${getPositionOnRing(120, (3 * Math.PI) / 4).x - 16}px`,
+            top: `${getPositionOnRing(120, (3 * Math.PI) / 4).y - 16}px`,
+            position: "absolute",
+            background: "#000000",
+            boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.15)",
+            borderRadius: "50%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg"
+            alt="Next.js"
+            style={{
+              width: "18px",
+              height: "18px",
+            }}
+          />
+        </div>
+
+        {/* Notion - 225° (bottom-left diagonal) */}
+        <div
+          style={{
+            width: "32px",
+            height: "32px",
+            left: `${getPositionOnRing(120, (5 * Math.PI) / 4).x - 16}px`,
+            top: `${getPositionOnRing(120, (5 * Math.PI) / 4).y - 16}px`,
+            position: "absolute",
+            background: "black",
+            boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.15)",
+            borderRadius: "50%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg"
+            alt="Vite"
+            style={{
+              width: "18px",
+              height: "18px",
+            }}
+          />
+        </div>
+
+        {/* Stripe - 180° (left) */}
+        <div
+          style={{
+            width: "32px",
+            height: "32px",
+            left: `${getPositionOnRing(160, Math.PI).x - 16}px`,
+            top: `${getPositionOnRing(160, Math.PI).y - 16}px`,
+            position: "absolute",
+            background: "white",
+            boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.15)",
+            borderRadius: "50%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg"
+            alt="Vue.js"
+            style={{
+              width: "18px",
+              height: "18px",
+            }}
+          />
+        </div>
+
+        {/* Framer - 0° (right) */}
+        <div
+          style={{
+            width: "32px",
+            height: "32px",
+            left: `${getPositionOnRing(160, 0).x - 16}px`,
+            top: `${getPositionOnRing(160, 0).y - 16}px`,
+            position: "absolute",
+            background: "white",
+            boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.15)",
+            borderRadius: "50%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+         
+         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/svelte/svelte-original.svg"
+            alt="Svelte"
+            style={{
+              width: "16px",
+              height: "16px",
+            }}
+          />
+        </div>
+
+        <svg
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            pointerEvents: "none",
+          }}
+        >
+          <defs>
+            <linearGradient id="connectionGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="rgba(55, 50, 47, 0.1)" />
+              <stop offset="50%" stopColor="rgba(55, 50, 47, 0.05)" />
+              <stop offset="100%" stopColor="rgba(55, 50, 47, 0.1)" />
+            </linearGradient>
+          </defs>
+
+          {/* Inner ring connections */}
+          <line
+            x1={centerX}
+            y1={centerY}
+            x2={getPositionOnRing(80, 0).x}
+            y2={getPositionOnRing(80, 0).y}
+            stroke="url(#connectionGradient)"
+            strokeWidth="1"
+            opacity="0.2"
+          />
+          <line
+            x1={centerX}
+            y1={centerY}
+            x2={getPositionOnRing(80, Math.PI).x}
+            y2={getPositionOnRing(80, Math.PI).y}
+            stroke="url(#connectionGradient)"
+            strokeWidth="1"
+            opacity="0.2"
+          />
+
+          {/* Middle ring connections */}
+          <line
+            x1={centerX}
+            y1={centerY}
+            x2={getPositionOnRing(120, -Math.PI / 4).x}
+            y2={getPositionOnRing(120, -Math.PI / 4).y}
+            stroke="url(#connectionGradient)"
+            strokeWidth="1"
+            opacity="0.15"
+          />
+          <line
+            x1={centerX}
+            y1={centerY}
+            x2={getPositionOnRing(120, (3 * Math.PI) / 4).x}
+            y2={getPositionOnRing(120, (3 * Math.PI) / 4).y}
+            stroke="url(#connectionGradient)"
+            strokeWidth="1"
+            opacity="0.15"
+          />
+          <line
+            x1={centerX}
+            y1={centerY}
+            x2={getPositionOnRing(120, (5 * Math.PI) / 4).x}
+            y2={getPositionOnRing(120, (5 * Math.PI) / 4).y}
+            stroke="url(#connectionGradient)"
+            strokeWidth="1"
+            opacity="0.15"
+          />
+
+          {/* Outer ring connections */}
+          <line
+            x1={centerX}
+            y1={centerY}
+            x2={getPositionOnRing(160, 0).x}
+            y2={getPositionOnRing(160, 0).y}
+            stroke="url(#connectionGradient)"
+            strokeWidth="1"
+            opacity="0.1"
+          />
+          <line
+            x1={centerX}
+            y1={centerY}
+            x2={getPositionOnRing(160, Math.PI).x}
+            y2={getPositionOnRing(160, Math.PI).y}
+            stroke="url(#connectionGradient)"
+            strokeWidth="1"
+            opacity="0.1"
+          />
+        </svg>
+      </div>
     </div>
   )
 }

@@ -2,6 +2,19 @@ import {withSentryConfig} from "@sentry/nextjs";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   transpilePackages: ["@workspace/ui"],
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.jsdelivr.net",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.simpleicons.org",
+      },
+    ],
+    domains: ["cdn.jsdelivr.net", "cdn.simpleicons.org"],
+  },
   experimental: {
     serverExternalPackages: ["@sentry/nextjs"]
   }

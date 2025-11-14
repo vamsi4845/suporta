@@ -22,13 +22,6 @@ const fontSerif = Instrument_Serif({
   weight: "400",
 })
 
-const fontVietnam = Be_Vietnam_Pro({
-  subsets: ["latin"],
-  variable: "--font-vietnam",
-  weight: "400",
-})
-
-
 export const metadata: Metadata = {
   title: "Suporta - Effortless Customer Support",
   description:"AI support that works for your team & customers."

@@ -4,16 +4,15 @@ import type React from "react"
 
 import CTASection from "@/modules/landing/components/cta-section"
 import DocumentationSection from "@/modules/landing/components/documentation-section"
-import EffortlessIntegration from "@/modules/landing/components/effortless-integration-updated"
+import EffortlessIntegration from "@/modules/landing/components/effortless-integration"
 import FAQSection from "@/modules/landing/components/faq-section"
+import FooterSection from "@/modules/landing/components/footer-section"
 import { LogoName } from "@/modules/landing/components/logo-name"
-import NumbersThatSpeak from "@/modules/landing/components/numbers-that-speak"
 import SmartSimpleBrilliant from "@/modules/landing/components/smart-simple-brilliant"
 import { useOrganization } from "@clerk/nextjs"
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
-import FooterSection from "@/modules/landing/components/footer-section"
 
 function Badge({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
@@ -111,10 +110,10 @@ export default function LandingPage() {
               </div>
             </div>
 
-            <div className="pt-16 sm:pt-20 md:pt-24  lg:pt-42  flex flex-col justify-start items-center px-2 sm:px-4 md:px-8 lg:px-0 w-full sm:pl-0 sm:pr-0 pl-0 pr-0">
+            <div className="pt-24 md:pt-32  lg:pt-42  flex flex-col justify-start items-center px-2 sm:px-4 md:px-8 lg:px-0 w-full sm:pl-0 sm:pr-0 pl-0 pr-0">
               <div className="w-full max-w-[937px] lg:w-[937px] flex flex-col justify-center items-center gap-3 sm:gap-4 md:gap-5 lg:gap-6">
                 <div className="self-stretch rounded-[3px] flex flex-col justify-center items-center gap-4 sm:gap-5 md:gap-6 lg:gap-8">
-                  <div className="w-full max-w-[748.71px] lg:w-[748.71px] text-center flex justify-center flex-col text-black/80 text-[28px] sm:text-[36px] md:text-[52px] lg:text-[80px] font-normal leading-[1.1] sm:leading-[1.15] md:leading-[1.2] lg:leading-24 font-serif px-2 sm:px-4 md:px-0">
+                  <div className="w-full max-w-[748.71px] lg:w-[748.71px] text-center flex justify-center flex-col text-black/80 text-[52px] lg:text-[80px] font-normal leading-[1.1] sm:leading-[1.15] md:leading-[1.2] lg:leading-24 font-serif px-2 sm:px-4 md:px-0">
                     <p>AI support that works for </p>
                     <p>your team & customers.</p>
                   </div>

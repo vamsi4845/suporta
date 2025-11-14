@@ -13,6 +13,7 @@ import { Separator } from "@workspace/ui/components/separator";
 import { WidgetPreview } from "@/modules/customization/ui/components/widget-preview";
 import { Loader2, CheckCircle2 } from "lucide-react";
 import { RadioGroup, RadioGroupItem } from "@/modules/customization/ui/components/color-picker";
+import { ToggleSidebar } from "@/modules/dashboard/ui/components/toggle-sidebar";
 
 interface WidgetCustomization {
   buttonColor: string;
@@ -156,8 +157,12 @@ export function CustomizationView() {
     : "";
 
   return (
-    <div className="flex min-h-screen flex-col bg-muted p-4">
-      <div className="mx-auto w-full max-w-4xl">
+    <div className="flex min-h-screen flex-col bg-muted">
+       <header className="flex items-center gap-2 border-b bg-background px-4 py-3">
+                <ToggleSidebar />
+                <h1 className="text-lg font-semibold">Customization</h1>
+            </header>
+      <div className="mx-auto w-full max-w-4xl mt-10">
         <div className="mb-2 space-y-2">
           <h1 className="text-2xl md:text-4xl font-semibold">Widget Customization</h1>
           <p className="text-muted-foreground">
