@@ -266,7 +266,7 @@ export function AnimatedCharactersWrapper({ children }: { children: React.ReactN
   return (
     <div className="min-h-screen grid lg:grid-cols-2">
       {/* Left Content Section */}
-      <div className="relative hidden lg:flex flex-col justify-between bg-gradient-to-br from-black/70 via-black to-black/80 p-12 text-primary-foreground">
+      <div className="relative hidden lg:flex flex-col justify-between bg-gradient-to-b from-black/80 to-black p-12 text-primary-foreground">
         <div className="relative z-20">
           <div className="flex items-center gap-2 text-lg font-semibold">
             <div className="size-8 rounded-lg bg-primary-foreground/10 backdrop-blur-sm flex items-center justify-center">
@@ -439,9 +439,9 @@ export function AnimatedCharactersWrapper({ children }: { children: React.ReactN
         </div>
 
         {/* Decorative elements */}
-        <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:20px_20px]" />
+        {/* <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:20px_20px]" />
         <div className="absolute top-1/4 right-1/4 size-64 bg-primary-foreground/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 left-1/4 size-96 bg-primary-foreground/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 left-1/4 size-96 bg-primary-foreground/5 rounded-full blur-3xl" /> */}
       </div>
 
       {/* Right Login Section */}

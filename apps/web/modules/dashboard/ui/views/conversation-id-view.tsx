@@ -14,7 +14,7 @@ import { Form, FormField } from "@workspace/ui/components/form";
 import { InfiniteScrollTrigger } from "@workspace/ui/components/infinite-scroll-trigger";
 import { useInfiniteScroll } from "@workspace/ui/hooks/use-infinite-scroll";
 import { useAction, useMutation, useQuery } from "convex/react";
-import { MoreHorizontalIcon, SendIcon, Wand2Icon } from "lucide-react";
+import { ArrowLeftIcon, MoreHorizontalIcon, SendIcon, Wand2Icon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -22,6 +22,8 @@ import { ConversationStatusButton } from "@/modules/dashboard/ui/components/conv
 import { useState } from "react";
 import { Skeleton } from "@workspace/ui/components/skeleton";
 import { cn } from "@workspace/ui/lib/utils";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { getCountryFlagUrl, getCountryFromTimeZone } from "@/lib/country-utils";
 
 
 const formSchema = z.object({
@@ -32,6 +34,7 @@ const formSchema = z.object({
 
 export function ConversationIdView({conversationId}: {conversationId: Id<"conversations">}) {
     const router = useRouter();
+    const isMobile = useIsMobile();
     const conversation = useQuery(api.private.conversations.getOne, {conversationId});
     const messages = useThreadMessages(api.private.messages.getMany, conversation?.threadId ? {threadId: conversation.threadId}:"skip", {initialNumItems: 10});
     const {topElementRef, handleLoadMore, canLoadMore, isLoadingMore} = useInfiniteScroll({status: messages.status, loadMore: messages.loadMore,loadSize: 10});
@@ -45,6 +48,10 @@ export function ConversationIdView({conversationId}: {conversationId: Id<"conver
             message: "",
         },
     });
+
+    const handleBack = () => {
+        router.push("/inbox");
+    };
 
     const onSubmit = async(values:z.infer<typeof formSchema>)=>{
         try {
@@ -88,9 +95,20 @@ export function ConversationIdView({conversationId}: {conversationId: Id<"conver
     if(conversation === undefined || messages.status === "LoadingFirstPage"){
         return <ConversationIdViewSkeleton />;
     }
+
+
+    const country = getCountryFromTimeZone(conversation.contactSession.metadata?.timezone);
+    const countryFlagUrl = country?.code ? getCountryFlagUrl(country.code) : undefined;
     return (
         <div className="flex h-full flex-col bg-muted">
-            <header className="flex items-center justify-end border-b bg-background p-2.5">
+            <header className="flex items-center justify-between border-b bg-background p-2.5">
+                <div className="flex items-center gap-2" >
+                    <Button variant="ghost" size="icon" onClick={handleBack} className="flex md:hidden">
+                        <ArrowLeftIcon className="size-4" />
+                    </Button>
+                    <DicebearAvatar seed={conversation?.contactSession._id} badgeImageUrl={countryFlagUrl} size={32} className="shrink-0" />
+                    <p className="text-lg font-medium line-clamp-1">{conversation?.contactSession.name}</p>
+                </div>
                 {conversation && (
                     <ConversationStatusButton status={conversation?.status ?? "unresolved"} onClick={handleUpdateStatus} disabled={isUpdatingStatus} />
                 )}

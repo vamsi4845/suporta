@@ -22,6 +22,7 @@ const buttonVariants = cva(
         transparent: "bg-transparent text-primary-foreground hover:bg-transparent hover:text-primary-foreground/80",
         tertiary: "bg-gradient-to-b from-[#3FB62F] to-[#318d25] text-white hover:to-[#318d25]/90",
         warning: "bg-gradient-to-b from-yellow-500 to-[#be8b00] text-white hover:to-[#be8b00]/90",
+        gradient:"shadow-xs bg-black/80 dark:bg-white/70 border border-zinc-300 dark:border-zinc-700 shadow-zinc-950/10 duration-200 text-white dark:text-black"
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",

@@ -1,22 +1,23 @@
 "use client";
 import { getCountryFlagUrl, getCountryFromTimeZone } from "@/lib/country-utils";
+import { statusFilterAtom } from "@/modules/dashboard/atoms";
+import { ToggleSidebar } from "@/modules/dashboard/ui/components/toggle-sidebar";
 import { api } from "@workspace/backend/_generated/api";
+import { Doc } from "@workspace/backend/_generated/dataModel";
 import { ConversationStatusIcon } from "@workspace/ui/components/conversation-status-icon";
 import { DicebearAvatar } from "@workspace/ui/components/dicebear-avatar";
+import { InfiniteScrollTrigger } from "@workspace/ui/components/infinite-scroll-trigger";
 import { ScrollArea } from "@workspace/ui/components/scroll-area";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@workspace/ui/components/select";
+import { Skeleton } from "@workspace/ui/components/skeleton";
+import { useInfiniteScroll } from "@workspace/ui/hooks/use-infinite-scroll";
 import { cn } from "@workspace/ui/lib/utils";
 import { usePaginatedQuery } from "convex/react";
 import { formatDistanceToNow } from "date-fns";
+import { useAtomValue, useSetAtom } from "jotai";
 import { ArrowRightIcon, ArrowUpIcon, CheckIcon, CornerUpLeftIcon, ListIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useAtom, useAtomValue, useSetAtom } from "jotai";
-import { statusFilterAtom } from "@/modules/dashboard/atoms";
-import { Doc } from "@workspace/backend/_generated/dataModel";
-import { useInfiniteScroll } from "@workspace/ui/hooks/use-infinite-scroll";
-import { InfiniteScrollTrigger } from "@workspace/ui/components/infinite-scroll-trigger";
-import { Skeleton } from "@workspace/ui/components/skeleton";
 
 export function ConversationsPanel() {
    const statusFilter = useAtomValue(statusFilterAtom);
@@ -30,7 +31,11 @@ export function ConversationsPanel() {
     }
     return (
         <div className="flex h-full w-full flex-col bg-background text-sidebar-foreground">
-            <div className="flex flex-col gap-3.5 border-b p-2">
+            <div className="flex items-center justify-between gap-3.5 border-b p-2">
+                <div className="flex items-center gap-0.5">  
+                    <ToggleSidebar />
+                    <p className="text-sm md:!text-lg font-medium">Inbox</p>
+                </div>
                 <Select defaultValue="all" onValueChange={handleStatusChange} value={statusFilter}>
                     <SelectTrigger className="h-8 border-none px-1.5 shadow-none ring-0 hover:bg-accent hover:text-accent-foreground focus-visible:ring-0 focus-visible:ring-offset-0">
                         <SelectValue placeholder="Filter" />
@@ -75,8 +80,6 @@ export function ConversationsPanel() {
                         return (
                             <Link key={conversation._id} href={`/inbox/${conversation._id}`} 
                             className={cn("relative flex cursor-pointer items-start gap-3 border-b p-4 py-5 tex-sm leading-tight hover:bg-accent", pathname === `/inbox/${conversation._id}` && "bg-accent text-accent-foreground")}>
-                                <div className={cn("-translate-y-1/2 absolute top-1/2 left-0 h-[64%] w-1 rounded-r-full bg-neutral-300 opacity-0 transition-opacity",
-                                    pathname === `/inbox/${conversation._id}` && "opacity-100")}/>
                                     <DicebearAvatar seed={conversation.contactSession._id} badgeImageUrl={countryFlagUrl} size={40} className="shrink-0" />
                                     <div className="flex-1">
                                         <div className="flex w-full items-center gap-2">

@@ -19,7 +19,7 @@ export const InfiniteScrollTrigger = ({canLoadMore, isLoadingMore, onLoadMore, l
     if(isLoadingMore) {
         text = "Loading...";
     } else if(!canLoadMore) {
-        text = noMoreText;
+        text = "";
     }
 
     return (
