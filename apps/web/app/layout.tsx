@@ -1,6 +1,6 @@
 
 import "@workspace/ui/globals.css"
-import { Geist, Geist_Mono } from "next/font/google"
+import { Geist, Geist_Mono, Instrument_Serif,Be_Vietnam_Pro } from "next/font/google"
 import { Providers } from "@/components/providers"
 import { ClerkProvider } from '@clerk/nextjs'
 import { Analytics } from "@vercel/analytics/react"
@@ -14,6 +14,18 @@ const fontSans = Geist({
 const fontMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
+})
+
+const fontSerif = Instrument_Serif({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  weight: "400",
+})
+
+const fontVietnam = Be_Vietnam_Pro({
+  subsets: ["latin"],
+  variable: "--font-vietnam",
+  weight: "400",
 })
 
 
@@ -30,7 +42,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased `}
+        className={`${fontSans.variable} ${fontMono.variable} ${fontSerif.variable} font-sans antialiased `}
       >
         <Analytics />
         <ClerkProvider>

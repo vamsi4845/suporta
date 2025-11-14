@@ -104,20 +104,21 @@ export default function LandingPage() {
                 <div className="h-6 sm:h-7 md:h-8 flex justify-start items-start gap-2 sm:gap-3">
                   <div className="px-2 sm:px-3 md:px-[14px] py-1 sm:py-[6px] bg-black/80 shadow-[0px_1px_2px_rgba(55,50,47,0.12)] overflow-hidden rounded-full flex justify-center items-center">
                     <Link href="/inbox" className="flex flex-col justify-center text-white text-xs md:text-[13px] font-medium leading-5 font-sans">
-                      {organization ? "Dashboard" : "Log in"}
+                      {organization ? "Dashboard" : "Sign in"}
                     </Link>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="pt-16 sm:pt-20 md:pt-24  lg:pt-32  flex flex-col justify-start items-center px-2 sm:px-4 md:px-8 lg:px-0 w-full sm:pl-0 sm:pr-0 pl-0 pr-0">
+            <div className="pt-16 sm:pt-20 md:pt-24  lg:pt-42  flex flex-col justify-start items-center px-2 sm:px-4 md:px-8 lg:px-0 w-full sm:pl-0 sm:pr-0 pl-0 pr-0">
               <div className="w-full max-w-[937px] lg:w-[937px] flex flex-col justify-center items-center gap-3 sm:gap-4 md:gap-5 lg:gap-6">
                 <div className="self-stretch rounded-[3px] flex flex-col justify-center items-center gap-4 sm:gap-5 md:gap-6 lg:gap-8">
-                  <div className="w-full max-w-[748.71px] lg:w-[748.71px] text-center flex justify-center flex-col text-black/80 text-[24px] xs:text-[28px] sm:text-[36px] md:text-[52px] lg:text-[80px] font-normal leading-[1.1] sm:leading-[1.15] md:leading-[1.2] lg:leading-24 font-serif px-2 sm:px-4 md:px-0">
-                    <p>AI support that works for your team & customers.</p>
+                  <div className="w-full max-w-[748.71px] lg:w-[748.71px] text-center flex justify-center flex-col text-black/80 text-[28px] sm:text-[36px] md:text-[52px] lg:text-[80px] font-normal leading-[1.1] sm:leading-[1.15] md:leading-[1.2] lg:leading-24 font-serif px-2 sm:px-4 md:px-0">
+                    <p>AI support that works for </p>
+                    <p>your team & customers.</p>
                   </div>
-                  <div className="w-full max-w-[506.08px] lg:w-[506.08px] text-center flex justify-center flex-col text-[rgba(55,50,47,0.80)] sm:text-lg md:text-xl leading-[1.4] sm:leading-[1.45] md:leading-[1.5] lg:leading-7 font-sans px-2 sm:px-4 md:px-0 lg:text-lg font-medium text-sm">
+                  <div className="w-full max-w-[506.08px] lg:w-[506.08px] text-center flex justify-center flex-col text-black/70 sm:text-lg md:text-xl leading-[1.4] sm:leading-[1.45] md:leading-[1.5] lg:leading-7 px-2 sm:px-4 md:px-0 lg:text-lg font-medium text-sm font-serif">
                     <p>Drop your knowledge base, install the widget, and start</p>
                     <p>taking conversations in minutes.</p>
                   </div>
@@ -127,7 +128,7 @@ export default function LandingPage() {
               <div className="w-full max-w-[497px] lg:w-[497px] flex flex-col justify-center items-center gap-6 sm:gap-8 md:gap-10 lg:gap-12 relative z-10 mt-6 sm:mt-8 md:mt-10 lg:mt-12">
                 <div className="backdrop-blur-[8.25px] flex justify-start items-center gap-4">
                   <div className="h-10 sm:h-11 md:h-12 px-6 sm:px-8 md:px-10 lg:px-12 py-2 sm:py-[6px] relative bg-black/80 shadow-[0px_0px_0px_2.5px_rgba(255,255,255,0.08)_inset] overflow-hidden rounded-full flex justify-center items-center">
-                    <Link href="/inbox" className="flex flex-col justify-center text-white text-sm sm:text-base md:text-[15px] font-medium leading-5 font-sans !cursor-pointer">
+                    <Link href="/inbox" className="flex flex-col justify-center text-white text-sm sm:text-base md:text-[18px] font-serif tracking-wide !cursor-pointer">
                       Start for free
                     </Link>
                   </div>
@@ -248,9 +249,8 @@ export default function LandingPage() {
                       Everything you need for intelligent support
                     </div>
                     <div className="self-stretch text-center text-[#605A57] text-sm sm:text-base font-normal leading-6 sm:leading-7 font-sans">
-                      From knowledge base management to conversation analytics,
-                      <br />
-                      all in one powerful platform.
+                     <p>From knowledge base management to conversation analytics,</p>
+                      <p>all in one powerful platform.</p>
                     </div>
                   </div>
                 </div>
