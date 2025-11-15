@@ -269,8 +269,7 @@ export function AnimatedCharactersWrapper({ children }: { children: React.ReactN
       <div className="relative hidden lg:flex flex-col justify-between bg-gradient-to-b from-black/80 to-black p-12 text-primary-foreground">
         <div className="relative z-20">
           <div className="flex items-center gap-2 text-lg font-semibold">
-            <div className="size-8 rounded-lg bg-primary-foreground/10 backdrop-blur-sm flex items-center justify-center">
-              {/* <Sparkles className="size-4" /> */}
+            <div className="size-8 rounded-lg flex items-center justify-center">
               <Image src="/logo.svg" alt="logo" width={32} height={32}/>
             </div>
             <span>Suporta</span>
@@ -445,17 +444,8 @@ export function AnimatedCharactersWrapper({ children }: { children: React.ReactN
       </div>
 
       {/* Right Login Section */}
-      <div className="flex items-center justify-center p-8 bg-background">
-        <div className="w-full max-w-[420px]">
-          {/* Mobile Logo */}
-          <div className="lg:hidden flex items-center justify-center gap-2 text-lg font-semibold mb-12">
-            <div className="size-8 rounded-lg bg-primary/10 flex items-center justify-center">
-              <Image src="/logo.svg" alt="logo" width={32} height={32}/>
-            </div>
-            <span>Suporta</span>
-          </div>
+      <div className="flex items-center justify-center p-3 md:p-8 bg-gradient-to-b from-black/80 to-black md:bg-none md:bg-background">
           {children}
-        </div>
       </div>
     </div>
   );

@@ -304,7 +304,7 @@ function CommandMenuFooter() {
             className="text-muted-foreground"
             aria-hidden
           />
-          <h5 className="text-sm font-bold">Supporta</h5>
+          <h5 className="text-sm font-bold">Suporta</h5>
         </div>
         <div className="flex shrink-0 items-center gap-2">
           <span>{ENTER_ACTION_LABELS[selectedCommandKind]}</span>

@@ -1,10 +1,10 @@
 
-import "@workspace/ui/globals.css"
-import { Geist, Geist_Mono, Instrument_Serif,Be_Vietnam_Pro } from "next/font/google"
 import { Providers } from "@/components/providers"
 import { ClerkProvider } from '@clerk/nextjs'
 import { Analytics } from "@vercel/analytics/react"
+import "@workspace/ui/globals.css"
 import { Metadata } from "next"
+import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google"
 
 const fontSans = Geist({
   subsets: ["latin"],
@@ -35,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${fontSans.variable} ${fontMono.variable} ${fontSerif.variable} font-sans antialiased `}
+        className={`${fontSans.variable} ${fontMono.variable} ${fontSerif.variable} font-sans antialiased`}
       >
         <Analytics />
         <ClerkProvider>

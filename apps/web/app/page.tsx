@@ -33,6 +33,9 @@ export default function LandingPage() {
   useEffect(() => {
     mountedRef.current = true
     
+    document.body.classList.add("hide-scrollbar")
+    document.documentElement.classList.add("hide-scrollbar")
+    
     const progressInterval = setInterval(() => {
       if (!mountedRef.current) return
 
@@ -58,6 +61,8 @@ export default function LandingPage() {
       clearInterval(progressInterval)
       clearInterval(cardInterval)
       mountedRef.current = false
+      document.body.classList.remove("hide-scrollbar")
+      document.documentElement.classList.remove("hide-scrollbar")
     }
   }, [])
 
