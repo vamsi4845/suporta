@@ -162,7 +162,7 @@ export function CustomizationView() {
                 <ToggleSidebar />
                 <h1 className="text-lg font-semibold">Customization</h1>
             </header>
-      <div className="mx-auto w-full max-w-4xl mt-10">
+      <div className="mx-auto w-full md:max-w-4xl mt-10 p-2">
         <div className="mb-2 space-y-2">
           <h1 className="text-2xl md:text-4xl font-semibold">Widget Customization</h1>
           <p className="text-muted-foreground">
