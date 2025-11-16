@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     siteName: "Suporta",
     images: [
       {
-        url: "https://vamsi-personal-s3.s3.ap-south-1.amazonaws.com/suporta/og.png",
+        url: "https://suporta.vamsi.app/og.png",
         width: 1200,
         height: 630,
         alt: "Suporta - Effortless Customer Support",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     description:
       "AI support that works for your team & customers.",
     images: [
-      "https://vamsi-personal-s3.s3.ap-south-1.amazonaws.com/suporta/og.png",
+      "https://suporta.vamsi.app/og.png",
     ],
   },
   other: {
