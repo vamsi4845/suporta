@@ -25,62 +25,65 @@ export function ConversationsPanel() {
    const statusFilter = useAtomValue(statusFilterAtom);
    const setStatusFilter = useSetAtom(statusFilterAtom);
     const conversations = usePaginatedQuery(api.private.conversations.getMany, {status: statusFilter === "all" ? undefined : statusFilter}, {initialNumItems: 10});
+    console.log("Conversations",conversations)
     const {topElementRef, handleLoadMore, canLoadMore, isLoadingMore,isLoadingFirstPage} = useInfiniteScroll({status: conversations.status, loadMore: conversations.loadMore, loadSize: 10});
     const pathname = usePathname();
 
     const handleStatusChange = (value: Doc<"conversations">["status"] | "all") => {
         setStatusFilter(value);
     }
-
+    
     const renderContent = () => {
         if (isLoadingFirstPage) {
             return <ConversationsPanelSkeleton />;
         }
-        if (true) {
-            return (
-                <div className="flex h-full w-full flex-col items-center justify-end bg-inherit p-2 text-sidebar-foreground">
-                    <EmptyConversationsState />
-                </div>
-            );
-        }
+        const isWelcomeConversation = conversations.results.length > 0 && conversations.results[0]?.contactSession.email === "system@suporta.ai";
+
         return (
-            <ScrollArea className="max-h-[calc(100vh-53px)]" >
-                <div className="flex flex-col text-sm">
-                   {conversations.results.map((conversation) => {
-                                const isLastMessageFromOperator = conversation.lastMessage?.message?.role !== "user";
-                                const country = getCountryFromTimeZone(conversation.contactSession.metadata?.timezone);
-                                const countryFlagUrl = country?.code ? getCountryFlagUrl(country.code) : undefined;
-                                return (
-                                    <Link key={conversation._id} href={`/inbox/${conversation._id}`} 
-                                    className={cn("relative flex cursor-pointer items-start gap-3 border-b p-4 py-5 tex-sm leading-tight hover:bg-accent", pathname === `/inbox/${conversation._id}` && "bg-accent text-accent-foreground")}>
-                                            <DicebearAvatar seed={conversation.contactSession._id} badgeImageUrl={countryFlagUrl} size={40} className="shrink-0" />
-                                            <div className="flex-1">
-                                                <div className="flex w-full items-center gap-2">
-                                                    <span className="truncate font-bold">
-                                                        {conversation.contactSession.name}
-                                                    </span>
-                                                    <span className="ml-auto shrink-0 text-xs text-muted-foreground">
-                                                        {formatDistanceToNow(conversation._creationTime)}
-                                                    </span>
-                                                </div>
-                                                <div className="flex items-center justify-between gap-2 mt-1">
-                                                    <div className="flex w-0 grow items-center gap-1">
-                                                        {isLastMessageFromOperator &&(
-                                                            <CornerUpLeftIcon className="size-3 shrink-0 text-muted-foreground" />
-                                                        )}
-                                                        <span className={cn("line-clamp-1 text-muted-foreground text-xs", !isLastMessageFromOperator && "text-black font-bold")}>
-                                                            {conversation.lastMessage?.text}
-                                                        </span>
+            <>
+                    <ScrollArea className="max-h-[calc(100vh-53px)]" >
+                        <div className="flex flex-col min-h-full text-sm">
+                        {conversations.results.map((conversation) => {
+                                        const isLastMessageFromOperator = conversation.lastMessage?.message?.role !== "user";
+                                        const country = getCountryFromTimeZone(conversation.contactSession.metadata?.timezone);
+                                        const countryFlagUrl = country?.code ? getCountryFlagUrl(country.code) : undefined;
+                                        return (
+                                            <Link key={conversation._id} href={`/inbox/${conversation._id}`} 
+                                            className={cn("relative flex cursor-pointer items-start gap-3 border-b p-4 py-5 tex-sm leading-tight hover:bg-accent", pathname === `/inbox/${conversation._id}` && "bg-accent text-accent-foreground")}>
+                                                    <DicebearAvatar seed={conversation.contactSession._id} badgeImageUrl={countryFlagUrl} size={40} className="shrink-0"  isWelcomeConversation={isWelcomeConversation}/>
+                                                    <div className="flex-1">
+                                                        <div className="flex w-full items-center gap-2">
+                                                            <span className="truncate font-bold">
+                                                                {conversation.contactSession.name}
+                                                            </span>
+                                                            <span className="ml-auto shrink-0 text-xs text-muted-foreground">
+                                                                {formatDistanceToNow(conversation._creationTime)}
+                                                            </span>
+                                                        </div>
+                                                        <div className="flex items-center justify-between gap-2 mt-1">
+                                                            <div className="flex w-0 grow items-center gap-1">
+                                                                {isLastMessageFromOperator &&(
+                                                                    <CornerUpLeftIcon className="size-3 shrink-0 text-muted-foreground" />
+                                                                )}
+                                                                <span className={cn("line-clamp-1 text-muted-foreground text-xs", !isLastMessageFromOperator && "text-black font-bold")}>
+                                                                    {conversation.lastMessage?.text}
+                                                                </span>
+                                                            </div>
+                                                            <ConversationStatusIcon status={conversation.status} />
+                                                        </div>
                                                     </div>
-                                                    <ConversationStatusIcon status={conversation.status} />
-                                                </div>
-                                            </div>
-                                    </Link>
-                                )
-                   })}
-                   <InfiniteScrollTrigger ref={topElementRef} canLoadMore={canLoadMore} isLoadingMore={isLoadingMore} onLoadMore={handleLoadMore} />
-                </div>
-            </ScrollArea>
+                                            </Link>
+                                        )
+                        })}
+                        <InfiniteScrollTrigger ref={topElementRef} canLoadMore={canLoadMore} isLoadingMore={isLoadingMore} onLoadMore={handleLoadMore} />
+                        </div>
+                    </ScrollArea>
+                   {isWelcomeConversation && (
+                    <div className="mt-auto pt-4 pb-4 px-4">
+                        <EmptyConversationsState />
+                    </div>
+                   )}
+            </>
         );
     };
 

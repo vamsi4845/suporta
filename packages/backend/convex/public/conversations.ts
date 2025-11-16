@@ -28,6 +28,34 @@ export const create = mutation({
       }
     });
     const conversationId = await ctx.db.insert("conversations", { threadId, organizationId: session.organizationId, contactSessionId: args.contactSessionId, status: "unresolved" });
+
+    const existingConversations = await ctx.db
+      .query("conversations")
+      .withIndex("by_organization_id", (q) =>
+        q.eq("organizationId", session.organizationId)
+      )
+      .collect();
+
+    const realConversationsCount = await Promise.all(
+      existingConversations.map(async (conv) => {
+        const contactSession = await ctx.db.get(conv.contactSessionId);
+        return contactSession?.email !== "system@suporta.ai";
+      })
+    ).then((results) => results.filter(Boolean).length);
+
+    if (realConversationsCount === 1) {
+      for (const conv of existingConversations) {
+        const contactSession = await ctx.db.get(conv.contactSessionId);
+        if (contactSession?.email === "system@suporta.ai") {
+          await ctx.db.delete(conv._id);
+          if (contactSession) {
+            await ctx.db.delete(contactSession._id);
+          }
+          break;
+        }
+      }
+    }
+
     return conversationId;
   },
 });

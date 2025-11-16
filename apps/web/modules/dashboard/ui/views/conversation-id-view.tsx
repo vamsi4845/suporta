@@ -36,6 +36,7 @@ export function ConversationIdView({conversationId}: {conversationId: Id<"conver
     const router = useRouter();
     const isMobile = useIsMobile();
     const conversation = useQuery(api.private.conversations.getOne, {conversationId});
+    const isWelcomeConversation = conversation?.contactSession.email === "system@suporta.ai";
     const messages = useThreadMessages(api.private.messages.getMany, conversation?.threadId ? {threadId: conversation.threadId}:"skip", {initialNumItems: 10});
     const {topElementRef, handleLoadMore, canLoadMore, isLoadingMore} = useInfiniteScroll({status: messages.status, loadMore: messages.loadMore,loadSize: 10});
     const [isUpdatingStatus, setIsUpdatingStatus] = useState(false);
@@ -106,7 +107,7 @@ export function ConversationIdView({conversationId}: {conversationId: Id<"conver
                     <Button variant="ghost" size="icon" onClick={handleBack} className="flex md:hidden">
                         <ArrowLeftIcon className="size-4" />
                     </Button>
-                    <DicebearAvatar seed={conversation?.contactSession._id} badgeImageUrl={countryFlagUrl} size={32} className="shrink-0" />
+                    <DicebearAvatar seed={conversation?.contactSession._id} badgeImageUrl={countryFlagUrl} size={32} className="shrink-0" isWelcomeConversation={isWelcomeConversation}/>
                     <p className="text-lg font-medium line-clamp-1">{conversation?.contactSession.name}</p>
                 </div>
                 {conversation && (
@@ -124,7 +125,7 @@ export function ConversationIdView({conversationId}: {conversationId: Id<"conver
                                 </AIResponse>
                             </AIMessageContent>
                             {message.role === "user" && (
-                                <DicebearAvatar seed={conversation?.contactSession._id ?? "user"} size={32}/>
+                                <DicebearAvatar seed={conversation?.contactSession._id ?? "user"} size={32} isWelcomeConversation={isWelcomeConversation}/>
                             )}
                         </AIMessage>
                     ))}

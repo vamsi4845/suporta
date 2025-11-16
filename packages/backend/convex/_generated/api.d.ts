@@ -28,6 +28,7 @@ import type * as system_ai_tools_search from "../system/ai/tools/search.js";
 import type * as system_contactSessions from "../system/contactSessions.js";
 import type * as system_conversations from "../system/conversations.js";
 import type * as system_messages from "../system/messages.js";
+import type * as system_organizations from "../system/organizations.js";
 import type * as system_subscriptions from "../system/subscriptions.js";
 import type * as users from "../users.js";
 
@@ -66,6 +67,7 @@ declare const fullApi: ApiFromModules<{
   "system/contactSessions": typeof system_contactSessions;
   "system/conversations": typeof system_conversations;
   "system/messages": typeof system_messages;
+  "system/organizations": typeof system_organizations;
   "system/subscriptions": typeof system_subscriptions;
   users: typeof users;
 }>;

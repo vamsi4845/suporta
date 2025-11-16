@@ -42,6 +42,26 @@ http.route({
         }
 
         switch(event.type){
+            case "organization.created":{
+                const organization = event.data as {
+                    id:string;
+                    name?:string;
+                };
+
+                const organizationId = organization.id;
+                const organizationName = organization.name;
+
+                if(!organizationId){
+                    return new Response("Missing Organization Id",{status:400})
+                }
+
+                await ctx.runMutation(internal.system.organizations.createWelcomeConversation,{
+                    organizationId,
+                    organizationName,
+                })
+
+                break;
+            }
             case "subscription.updated":{
                 const subscription = event.data as {
                     status:string;
