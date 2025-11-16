@@ -91,10 +91,10 @@ export function WidgetLoadingScreen({organizationId}:{organizationId: string | n
             <WidgetHeader>
                 <div className="flex flex-col justify-between gap-2 px-2 py-6 font-semibold">
                     <p className="text-3xl ">
-                    Hi, there!
+                    Questions?
                     </p>
                     <p className="text-lg">
-                        How can we help you today?
+                        Chat with us!
                     </p>
                 </div>
             </WidgetHeader>

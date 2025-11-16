@@ -24,10 +24,10 @@ export function useWidgetCustomization() {
       });
     } else {
       setCustomization({
-        buttonColor: "#3b82f6",
+        buttonColor: "#1972f5",
         position: "bottom-right",
         logoUrl: null,
-        primaryColor: "#3b82f6",
+        primaryColor: "#1972f5",
         backgroundColor: "#ffffff",
       });
     }

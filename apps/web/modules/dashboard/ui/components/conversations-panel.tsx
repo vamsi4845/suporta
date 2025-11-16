@@ -25,7 +25,6 @@ export function ConversationsPanel() {
    const statusFilter = useAtomValue(statusFilterAtom);
    const setStatusFilter = useSetAtom(statusFilterAtom);
     const conversations = usePaginatedQuery(api.private.conversations.getMany, {status: statusFilter === "all" ? undefined : statusFilter}, {initialNumItems: 10});
-    console.log("Conversations",conversations)
     const {topElementRef, handleLoadMore, canLoadMore, isLoadingMore,isLoadingFirstPage} = useInfiniteScroll({status: conversations.status, loadMore: conversations.loadMore, loadSize: 10});
     const pathname = usePathname();
 

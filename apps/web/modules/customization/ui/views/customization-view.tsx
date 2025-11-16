@@ -39,6 +39,7 @@ const PRIMARY_COLOR_OPTIONS = [
   { name: "orange", hex: "#f97316" },
   { name: "amber", hex: "#f59e0b" },
   { name: "emerald", hex: "#10b981" },
+  { name: "black", hex: "#00000" },
 ] as const;
 
 const BACKGROUND_COLOR_OPTIONS = [
@@ -317,12 +318,6 @@ export function CustomizationView() {
             </Card>
 
             <div className="flex justify-end gap-2">
-              {saveSuccess && (
-                <div className="flex items-center gap-2 text-sm text-green-600 dark:text-green-400">
-                  <CheckCircle2 className="size-4" />
-                  <span>Saved successfully!</span>
-                </div>
-              )}
               <Button onClick={handleSave} size="lg" disabled={isSaving || !organization?.id}>
                 {isSaving ? (
                   <>
