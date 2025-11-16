@@ -23,9 +23,45 @@ const fontSerif = Instrument_Serif({
 })
 
 export const metadata: Metadata = {
-  title: "Suporta - Effortless Customer Support",
-  description:"AI support that works for your team & customers."
-}
+  title:"Suporta - Effortless Customer Support",
+  description:"AI support that works for your team & customers.",
+  authors: [{ name: "Suporta" }],
+  keywords:"Suporta, AI support bot, knowledge base, support, questions, answers",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+  },
+  openGraph: {
+    title:"Suporta - Effortless Customer Support",
+    description: "AI support that works for your team & customers.",
+    url: "https://suporta.vamsi.app",
+    siteName: "Suporta",
+    images: [
+      {
+        url: "https://vamsi-personal-s3.s3.ap-south-1.amazonaws.com/suporta/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Suporta - Effortless Customer Support",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Suporta - Effortless Customer Support",
+    description:
+      "AI support that works for your team & customers.",
+    images: [
+      "https://vamsi-personal-s3.s3.ap-south-1.amazonaws.com/suporta/og.png",
+    ],
+  },
+  other: {
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "black-translucent",
+  },
+};
 
 export default function RootLayout({
   children,
