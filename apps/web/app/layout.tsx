@@ -24,7 +24,7 @@ const fontSerif = Instrument_Serif({
 
 export async function generateMetadata(): Promise<Metadata> {
   const baseUrl = "https://suporta.vamsi.app";
-  const ogImageUrl = `${baseUrl}/og.png`;
+  const ogImageUrl = new URL("/og.png", baseUrl).toString();
 
   return {
     metadataBase: new URL(baseUrl),
@@ -55,6 +55,7 @@ export async function generateMetadata(): Promise<Metadata> {
           width: 1200,
           height: 630,
           alt: "Suporta - Effortless Customer Support",
+          type: "image/png",
         },
       ],
       locale: "en_US",
