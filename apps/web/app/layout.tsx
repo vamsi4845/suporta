@@ -23,16 +23,24 @@ const fontSerif = Instrument_Serif({
 })
 
 export const metadata: Metadata = {
-  title:"Suporta - Effortless Customer Support",
-  description:"AI support that works for your team & customers.",
-  authors: [{ name: "Suporta" }],
-  keywords:"Suporta, AI support bot, knowledge base, support, questions, answers",
+  title: "Suporta - Effortless Customer Support",
+  description: "AI support that works for your team & customers.",
+  authors: [{ name: "Suporta", url: "https://suporta.vamsi.app" }],
+  creator: "Vamsi Sai",
+  keywords: [
+    "Suporta",
+    "AI support bot",
+    "knowledge base",
+    "support",
+    "questions",
+    "answers",
+  ],
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
   },
   openGraph: {
-    title:"Suporta - Effortless Customer Support",
+    title: "Suporta - Effortless Customer Support",
     description: "AI support that works for your team & customers.",
     url: "https://suporta.vamsi.app",
     siteName: "Suporta",
@@ -49,17 +57,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "Suporta - Effortless Customer Support",
-    description:
-      "AI support that works for your team & customers.",
-    images: [
-      "https://suporta.vamsi.app/og.png",
-    ],
-  },
-  other: {
-    "apple-mobile-web-app-capable": "yes",
-    "apple-mobile-web-app-status-bar-style": "black-translucent",
+    title: "Suporta - Effortless Customer Support",
+    description: "AI support that works for your team & customers.",
+    images: ["https://suporta.vamsi.app/og.png"],
   },
 };
 
