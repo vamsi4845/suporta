@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/react"
 import "@workspace/ui/globals.css"
 import { Metadata } from "next"
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google"
+import { Toaster } from "sonner"
 
 const fontSans = Geist({
   subsets: ["latin"],
@@ -93,6 +94,7 @@ export default function RootLayout({
         className={`${fontSans.variable} ${fontMono.variable} ${fontSerif.variable} font-sans antialiased`}
       >
         <Analytics />
+        <Toaster />
         <ClerkProvider>
           <Providers>
               {children}

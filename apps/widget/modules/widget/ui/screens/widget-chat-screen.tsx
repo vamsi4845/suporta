@@ -16,7 +16,8 @@ import { InfiniteScrollTrigger } from "@workspace/ui/components/infinite-scroll-
 import { useInfiniteScroll } from "@workspace/ui/hooks/use-infinite-scroll";
 import { useAction, useQuery } from "convex/react";
 import { useAtomValue, useSetAtom } from "jotai";
-import { ArrowLeftIcon, MenuIcon } from "lucide-react";
+import { ArrowLeftIcon, Loader2 } from "lucide-react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { useWidgetCustomization } from "@/modules/widget/hooks/use-widget-customization";
@@ -47,17 +48,25 @@ export function WidgetChatScreen() {
         },
     });
     const createMessage = useAction(api.public.messages.create)
+    const [isGenerating, setIsGenerating] = useState(false);
 
    const onSubmit = async (values: z.infer<typeof formSchema>) => {
     if(!conversation?.threadId || !contactSessionId) {
         return;
     }
     form.reset();
-    await createMessage({
-        threadId: conversation.threadId,
-        contactSessionId,
-        prompt: values.message,
-    });
+    setIsGenerating(true);
+    try {
+        await createMessage({
+            threadId: conversation.threadId,
+            contactSessionId,
+            prompt: values.message,
+        });
+    } catch (error) {
+        console.error(error);
+    } finally {
+        setIsGenerating(false);
+    }
    }
 
    const handleBack = () => {
@@ -93,6 +102,17 @@ export function WidgetChatScreen() {
                                 )}
                         </AIMessage>
                     ))}
+                    {isGenerating && (
+                        <AIMessage from="assistant">
+                            <AIMessageContent>
+                                <div className="flex items-center gap-2">
+                                    <Loader2 className="size-4 animate-spin" />
+                                    <span className="text-xs text-muted-foreground">Thinking...</span>
+                                </div>
+                            </AIMessageContent>
+                            <DicebearAvatar imageUrl={customization?.logoUrl || "/logo.svg"} seed="assistant" size={32}/>
+                        </AIMessage>
+                    )}
                 </AIConversationContent>
             </AIConversation>
             <Form {...form}>

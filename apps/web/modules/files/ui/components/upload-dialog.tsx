@@ -8,6 +8,7 @@ import { Input } from "@workspace/ui/components/input";
 import { Label } from "@workspace/ui/components/label";
 import { useAction } from "convex/react";
 import { useState } from "react";
+import { toast } from "sonner";
 
 
 interface UploadDialogProps{
@@ -34,7 +35,10 @@ export const UploadDialog = ({
 
     const handleFIleDrop = (acceptedFiles:File[])=>{
         const file = acceptedFiles[0];
-
+        if(file && file.size > 5* 1024 * 1024){
+            toast.error("File size is too large (max size 5MB)");
+            return;
+        }
         if(file){
             setUploadedFiles([file]);
             if(!uploadForm.filename){
@@ -47,7 +51,11 @@ export const UploadDialog = ({
     const handleUpload = async ()=>{
         setIsUploading(true);
         try{
-            const blob = uploadedFiles[0];
+            const blob = uploadedFiles[0] as File;
+            if(blob.size > 5* 1024 * 1024){
+                toast.error("File size is too large (max size 5MB)");
+                return;
+            }
             if(!blob) return;
             const filename = uploadForm.filename || blob.name;
             await addFile({
@@ -83,7 +91,7 @@ export const UploadDialog = ({
                         Upload Document
                     </DialogTitle>
                     <DialogDescription>
-                        Upload documents to your knowledge base for AI-powered search and retrieval
+                        Upload documents to your knowledge base for AI-powered search and retrieval (max size 5MB)
                     </DialogDescription>
                 </DialogHeader>
                 <div className="space-y-4">

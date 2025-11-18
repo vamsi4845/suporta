@@ -154,14 +154,14 @@ export const FilesView = () => {
                                             <UploadIcon className="mr-2 size-4" />
                                             Upload File
                                         </Button>
-                                        <Button
+                                        {/* <Button
                                             onClick={() => setScrapeDialogOpen(true)}
                                             variant="outline"
                                             size="sm"
                                         >
                                             <GlobeIcon className="mr-2 size-4" />
                                             Scrape Website
-                                        </Button>
+                                        </Button> */}
                                     </div>
                                 )}
                             </div>
