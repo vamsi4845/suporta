@@ -24,7 +24,8 @@ const fontSerif = Instrument_Serif({
 
 export async function generateMetadata(): Promise<Metadata> {
   const baseUrl = "https://suporta.vamsi.app";
-  const ogImageUrl = new URL("/og.png", baseUrl).toString();
+  
+  const ogImageUrl =  "https://dar5y10gv8dj8.cloudfront.net/suporta/og.png";
 
   return {
     metadataBase: new URL(baseUrl),
