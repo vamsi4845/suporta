@@ -348,13 +348,13 @@ export default function SmartSimpleBrilliant() {
                     <div className="relative mx-auto flex max-w-sm items-center justify-between">
                         <div className="space-y-6">
                             <IntegrationCard position="left-top">
-                            <Image src="/web.png" alt="logo" width={40} height={40} />
+                            <Image src="https://dar5y10gv8dj8.cloudfront.net/suporta/web.png" alt="logo" width={40} height={40} />
                             </IntegrationCard>
                             <IntegrationCard position="left-middle">
-                            <Image src="/csv.png" alt="logo" width={40} height={40} />
+                            <Image src="https://dar5y10gv8dj8.cloudfront.net/suporta/csv.png" alt="logo" width={40} height={40} />
                             </IntegrationCard>
                             <IntegrationCard position="left-bottom">
-                            <Image src="/text.png" alt="logo" width={40} height={40} />
+                            <Image src="https://dar5y10gv8dj8.cloudfront.net/suporta/text.png" alt="logo" width={40} height={40} />
                             </IntegrationCard>
                         </div>
                         <div className="mx-auto my-2 flex w-fit justify-center gap-2">
@@ -372,13 +372,13 @@ export default function SmartSimpleBrilliant() {
 
                         <div className="space-y-6">
                             <IntegrationCard position="right-top">
-                                <Image src="/pdf.png" alt="logo" width={40} height={40} />
+                                <Image src="https://dar5y10gv8dj8.cloudfront.net/suporta/pdf.png" alt="logo" width={40} height={40} />
                             </IntegrationCard>
                             <IntegrationCard position="right-middle">
-                               <Image src="/text.png" alt="logo" width={40} height={40} />
+                               <Image src="https://dar5y10gv8dj8.cloudfront.net/suporta/text.png" alt="logo" width={40} height={40} />
                             </IntegrationCard>
                             <IntegrationCard position="right-bottom">
-                                <Image src="/csv.png" alt="logo" width={40} height={40} />
+                                <Image src="https://dar5y10gv8dj8.cloudfront.net/suporta/csv.png" alt="logo" width={40} height={40} />
                             </IntegrationCard>
                         </div>
                     </div>

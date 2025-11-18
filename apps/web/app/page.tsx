@@ -72,6 +72,22 @@ export default function LandingPage() {
     setProgress(0)
   }
 
+  const handleNavbarClick = (href: string) => {
+    const id = href.replace("#", "")
+    const element = document.getElementById(id)
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      })
+    }
+  }
+
+  const handleNavbarLinkClick = (href: string, e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    handleNavbarClick(href)
+  }
+
   return (
     <div className="w-full min-h-screen relative bg-white overflow-x-hidden flex flex-col justify-start items-center">
       <div className="relative flex flex-col justify-start items-center w-full">
@@ -89,17 +105,17 @@ export default function LandingPage() {
                   <LogoName />
                   <div className="pl-3 sm:pl-4 md:pl-5 lg:pl-5 flex justify-start items-start hidden sm:flex flex-row gap-2 sm:gap-3 md:gap-4 lg:gap-4">
                     <div className="flex justify-start items-center">
-                      <Link href="#features" className="flex flex-col justify-center text-[rgba(49,45,43,0.80)] text-xs md:text-[13px] font-medium leading-[14px] font-sans">
+                      <Link href="#features" onClick={(e) => handleNavbarLinkClick("#features", e)} className="flex flex-col justify-center text-[rgba(49,45,43,0.80)] text-xs md:text-[13px] font-medium leading-[14px] font-sans">
                         Features
                       </Link>
                     </div>
                     <div className="flex justify-start items-center">
-                      <Link href="#setup" className="flex flex-col justify-center text-[rgba(49,45,43,0.80)] text-xs md:text-[13px] font-medium leading-[14px] font-sans">
+                      <Link href="#setup" onClick={(e) => handleNavbarLinkClick("#setup", e)} className="flex flex-col justify-center text-[rgba(49,45,43,0.80)] text-xs md:text-[13px] font-medium leading-[14px] font-sans">
                         Setup
                       </Link>
                     </div>
                     <div className="flex justify-start items-center">
-                      <Link href="#faq" className="flex flex-col justify-center text-[rgba(49,45,43,0.80)] text-xs md:text-[13px] font-medium leading-[14px] font-sans">
+                      <Link href="#faq" onClick={(e) => handleNavbarLinkClick("#faq", e)} className="flex flex-col justify-center text-[rgba(49,45,43,0.80)] text-xs md:text-[13px] font-medium leading-[14px] font-sans">
                         About
                       </Link>
                     </div>
@@ -150,9 +166,9 @@ export default function LandingPage() {
                           }`}
                         >
                           <Image
-                            src="/knowledge.png"
+                            src="https://dar5y10gv8dj8.cloudfront.net/suporta/content-2.png"
                             alt="AI Support Agent Dashboard - Knowledge Base Management"
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-contain"
                             fill
                           />
                         </div>
@@ -163,9 +179,9 @@ export default function LandingPage() {
                           }`}
                         >
                           <Image
-                            src="/conversations.png"
+                            src="https://dar5y10gv8dj8.cloudfront.net/suporta/integrations-2.png"
                             alt="Conversation Management Dashboard"
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-contain"
                             fill
                           />
                         </div>
@@ -176,7 +192,7 @@ export default function LandingPage() {
                           }`}
                         >
                           <Image
-                            src="/customization.png"
+                            src="https://dar5y10gv8dj8.cloudfront.net/suporta/conversations-2.png"
                             alt="Widget Customization Dashboard"
                             className="w-full h-full object-contain"
                             fill
@@ -297,7 +313,7 @@ export default function LandingPage() {
                         </p>
                       </div>
                       <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] rounded-lg flex overflow-hidden text-right items-center justify-center">
-                        <Image src="/ai-conversations.png" alt="Conversation Management" width={400} height={250} className="w-full h-full object-contain" />
+                        <Image src="https://dar5y10gv8dj8.cloudfront.net/suporta/ai-conversations.png" alt="Conversation Management" width={400} height={250} className="w-full h-full object-contain" />
                       </div>
                     </div>
 
@@ -328,7 +344,7 @@ export default function LandingPage() {
                       </div>
                       <div className="w-full h-[200px] sm:h-[250px] md:h-[280px] rounded-lg flex overflow-hidden items-center justify-center relative">
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <Image src="/analytics.png" alt="Conversation Analytics" width={400} height={280} className="w-full h-full object-contain" />
+                          <Image src="https://dar5y10gv8dj8.cloudfront.net/suporta/analytics.png" alt="Conversation Analytics" width={400} height={280} className="w-full h-full object-contain" />
                         </div>
                       </div>
                     </div>

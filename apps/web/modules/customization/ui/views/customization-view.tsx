@@ -39,7 +39,7 @@ const PRIMARY_COLOR_OPTIONS = [
   { name: "orange", hex: "#f97316" },
   { name: "amber", hex: "#f59e0b" },
   { name: "emerald", hex: "#10b981" },
-  { name: "black", hex: "#00000" },
+  { name: "black", hex: "#000000" },
 ] as const;
 
 const BACKGROUND_COLOR_OPTIONS = [
@@ -154,7 +154,7 @@ export function CustomizationView() {
   };
 
   const previewUrl = organization?.id
-    ? `https://ai-support-bot-widget-beta.vercel.app/?organizationId=${organization.id}`
+    ? `http://localhost:3001/?organizationId=${organization.id}`
     : "";
 
   return (

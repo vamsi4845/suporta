@@ -74,7 +74,7 @@ export function DashboardSidebar(){
                                     <SidebarMenuButton asChild disabled={item.title === "Analytics"} tooltip={item.title} isActive={isActive(item.url)} className={cn(isActive(item.url) && "bg-background border border-sidebar-border text-background rounded-xl")}>
                                         <Link href={item.url} className={cn(item.title === "Analytics" && "pointer-events-none opacity-80")}>
                                             <Image src={item.icon} alt={item.title} width={24} height={24}/>
-                                            <span>{item.title} {item.title === "Analytics" && <span className="text-xs text-muted-foreground">(soon)</span>}</span>
+                                            <span className="text-md font-medium">{item.title} {item.title === "Analytics" && <span className="text-xs text-muted-foreground">(soon)</span>}</span>
                                         </Link>
                                     </SidebarMenuButton>
                                 </SidebarMenuItem>

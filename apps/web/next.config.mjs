@@ -12,8 +12,12 @@ const nextConfig = {
         protocol: "https",
         hostname: "cdn.simpleicons.org",
       },
+      {
+        protocol: "https",
+        hostname: "dar5y10gv8dj8.cloudfront.net",
+      },
     ],
-    domains: ["cdn.jsdelivr.net", "cdn.simpleicons.org"],
+    domains: ["cdn.jsdelivr.net", "cdn.simpleicons.org", "dar5y10gv8dj8.cloudfront.net"],
   },
   experimental: {
     serverExternalPackages: ["@sentry/nextjs"]

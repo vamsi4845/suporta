@@ -23,17 +23,17 @@ export default function DocumentationSection() {
     {
       title: "Upload your content",
       description: "Add your documents and knowledge base. The AI instantly learns from your content to answer questions accurately.",
-      image: "/knowledge.png",
+      image: "https://dar5y10gv8dj8.cloudfront.net/suporta/content-only.png",
     },
     {
       title: "Add widget to your website",
       description: "Copy the line of code with your organization ID\nand paste it into your HTML head section. That's it.",
-      image: "/integrations.png",
+      image: "https://dar5y10gv8dj8.cloudfront.net/suporta/integrations-only.png",
     },
     {
       title: "Manage conversations",
       description: "Monitor all customer conversations, handle escalations,\nand track resolution rates in real-time.",
-      image: "/conversations.png",
+      image: "https://dar5y10gv8dj8.cloudfront.net/suporta/conversations-only.png",
     },
   ]
 
@@ -52,7 +52,7 @@ export default function DocumentationSection() {
   }
 
   return (
-    <div className="w-full border-b border-black/10 flex flex-col justify-center items-center">
+    <div id="setup" className="w-full border-b border-black/10 flex flex-col justify-center items-center" >
       <div className="self-stretch px-6 md:px-24 py-12 md:py-16 border-b border-black/10 flex justify-center items-center gap-6">
         <div className="w-full max-w-[586px] px-6 py-5 shadow-[0px_2px_4px_rgba(50,45,43,0.06)] overflow-hidden rounded-lg flex flex-col justify-start items-center gap-4 shadow-none">
           <Badge
@@ -119,9 +119,9 @@ export default function DocumentationSection() {
                     }`}
                   >
                     <Image
-                      src={cards[0]?.image || "/knowledge.png"}
+                      src={cards[0]?.image || "https://dar5y10gv8dj8.cloudfront.net/suporta/content-only.png"}
                       alt="Knowledge Base Management"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                       fill
                     />
                   </div>
@@ -132,7 +132,7 @@ export default function DocumentationSection() {
                     }`}
                   >
                     <Image
-                      src={cards[1]?.image || "/integrations.png"}
+                      src={cards[1]?.image || "https://dar5y10gv8dj8.cloudfront.net/suporta/integrations-only.png"}
                       alt="Widget Integration"
                       className="w-full h-full object-cover"
                       fill
@@ -145,9 +145,9 @@ export default function DocumentationSection() {
                     }`}
                   >
                     <Image
-                      src={cards[2]?.image || "/conversations.png"}
+                      src={cards[2]?.image || "https://dar5y10gv8dj8.cloudfront.net/suporta/conversations-only.png"}
                       alt="Conversation Management"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                       fill
                     />
                   </div>
