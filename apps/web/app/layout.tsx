@@ -22,46 +22,63 @@ const fontSerif = Instrument_Serif({
   weight: "400",
 })
 
-export const metadata: Metadata = {
-  title: "Suporta - Effortless Customer Support",
-  description: "AI support that works for your team & customers.",
-  authors: [{ name: "Suporta", url: "https://suporta.vamsi.app" }],
-  creator: "Vamsi Sai",
-  keywords: [
-    "Suporta",
-    "AI support bot",
-    "knowledge base",
-    "support",
-    "questions",
-    "answers",
-  ],
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: "black-translucent",
-  },
-  openGraph: {
+export async function generateMetadata(): Promise<Metadata> {
+  const baseUrl = "https://suporta.vamsi.app";
+  const ogImageUrl = `${baseUrl}/og.png`;
+
+  return {
+    metadataBase: new URL(baseUrl),
     title: "Suporta - Effortless Customer Support",
     description: "AI support that works for your team & customers.",
-    url: "https://suporta.vamsi.app",
-    siteName: "Suporta",
-    images: [
-      {
-        url: "https://suporta.vamsi.app/og.png",
-        width: 1200,
-        height: 630,
-        alt: "Suporta - Effortless Customer Support",
-      },
+    authors: [{ name: "Suporta", url: baseUrl }],
+    creator: "Vamsi Sai",
+    keywords: [
+      "Suporta",
+      "AI support bot",
+      "knowledge base",
+      "support",
+      "questions",
+      "answers",
     ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Suporta - Effortless Customer Support",
-    description: "AI support that works for your team & customers.",
-    images: ["https://suporta.vamsi.app/og.png"],
-  },
-};
+    appleWebApp: {
+      capable: true,
+      statusBarStyle: "black-translucent",
+    },
+    openGraph: {
+      title: "Suporta - Effortless Customer Support",
+      description: "AI support that works for your team & customers.",
+      url: baseUrl,
+      siteName: "Suporta",
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: "Suporta - Effortless Customer Support",
+        },
+      ],
+      locale: "en_US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Suporta - Effortless Customer Support",
+      description: "AI support that works for your team & customers.",
+      images: [ogImageUrl],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
+  };
+}
 
 export default function RootLayout({
   children,
