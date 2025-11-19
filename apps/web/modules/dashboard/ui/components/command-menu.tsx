@@ -62,6 +62,12 @@ const NAVIGATION_LINKS: CommandLinkItem[] = [
     iconImage: "/magic-wand-sparkle.svg",
     keywords: ["widget", "customize", "settings", "config"],
   },
+  {
+    title: "Analytics",
+    href: "/analytics",
+    iconImage: "/analytics-icon.svg",
+    keywords: ["analytics", "stats", "performance"],
+  },
 ];
 
 export function CommandMenu() {

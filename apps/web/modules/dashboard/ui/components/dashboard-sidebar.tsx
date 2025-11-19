@@ -71,10 +71,10 @@ export function DashboardSidebar(){
                         <SidebarMenu>
                             {navItems?.map((item) => (
                                 <SidebarMenuItem key={item.title}>
-                                    <SidebarMenuButton asChild disabled={item.title === "Analytics"} tooltip={item.title} isActive={isActive(item.url)} className={cn(isActive(item.url) && "bg-background border border-sidebar-border text-background rounded-xl")}>
-                                        <Link href={item.url} className={cn(item.title === "Analytics" && "pointer-events-none opacity-80")}>
+                                    <SidebarMenuButton asChild  tooltip={item.title} isActive={isActive(item.url)} className={cn(isActive(item.url) && "bg-background border border-sidebar-border text-background rounded-xl")}>
+                                        <Link href={item.url}>
                                             <Image src={item.icon} alt={item.title} width={24} height={24}/>
-                                            <span className="text-md font-medium">{item.title} {item.title === "Analytics" && <span className="text-xs text-muted-foreground">(soon)</span>}</span>
+                                            <span className="text-md font-medium">{item.title}</span>
                                         </Link>
                                     </SidebarMenuButton>
                                 </SidebarMenuItem>
