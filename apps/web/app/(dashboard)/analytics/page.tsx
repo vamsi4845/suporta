@@ -13,7 +13,7 @@ import {
 import { ChartConfig, ChartContainer, ChartLegend, ChartLegendContent, ChartTooltip, ChartTooltipContent } from "@workspace/ui/components/chart";
 import { Badge } from "@workspace/ui/components/badge";
 import { TrendingDown } from "lucide-react";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useMemo } from "react";
 import { useSpring, useMotionValueEvent } from "motion/react";
 import { Skeleton } from "@workspace/ui/components/skeleton";
 import { ToggleSidebar } from "@/modules/dashboard/ui/components/toggle-sidebar";
@@ -59,10 +59,10 @@ export default function AnalyticsPage() {
     setAxis(latest);
   });
 
-  const chartData = stats?.volumeByDate.map((item) => ({
+  const chartData = useMemo(() => stats?.volumeByDate.map((item) => ({
     date: item.date,
     conversations: item.count,
-  })) || [];
+  })) || [], [stats]);
 
   useEffect(() => {
     if (chartData.length > 0) {

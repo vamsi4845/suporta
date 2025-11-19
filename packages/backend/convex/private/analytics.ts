@@ -54,14 +54,16 @@ export const getStats = query({
     
     const volumeByDate = last7Days.reduce((acc, curr) => {
         const date = new Date(curr._creationTime).toISOString().split('T')[0];
-        acc[date] = (acc[date] || 0) + 1;
+        if (date) {
+            acc[date] = (acc[date] || 0) + 1;
+        }
         return acc;
     }, {} as Record<string, number>);
 
     // Fill in missing days with 0
     for (let i = 0; i < 7; i++) {
         const d = new Date(now - i * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
-        if (!volumeByDate[d]) {
+        if (d && !volumeByDate[d]) {
             volumeByDate[d] = 0;
         }
     }
@@ -82,4 +84,3 @@ export const getStats = query({
     };
   },
 });
-
