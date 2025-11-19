@@ -328,7 +328,7 @@ export default function AnalyticsPage() {
             </CardHeader>
             <CardContent className="w-full overflow-hidden p-0 sm:p-6">
               <ChartContainer config={comparisonConfig} className="min-h-[300px] w-full max-w-full">
-                <BarChart data={comparisonData} margin={{ left: 0, right: 0 }}>
+                <BarChart data={comparisonData} margin={{ left: 0, right: 0 }} barCategoryGap="30%">
                   <CartesianGrid vertical={false} />
                   <XAxis
                     dataKey="name"
@@ -339,7 +339,7 @@ export default function AnalyticsPage() {
                   />
                   <YAxis tickLine={false} axisLine={false} tick={{ fontSize: 12 }} />
                   <ChartTooltip content={<ChartTooltipContent />} />
-                  <Bar dataKey="value" radius={[4, 4, 0, 0]}>
+                  <Bar dataKey="value" radius={[4, 4, 0, 0]} barSize={60}>
                     {comparisonData.map((entry) => (
                       <Cell key={entry.name} fill={entry.fill} />
                     ))}
@@ -355,7 +355,7 @@ export default function AnalyticsPage() {
             <CardTitle>Daily Status Breakdown</CardTitle>
             <CardDescription>Conversation status by day (last 7 days)</CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="p-0 md:px-6">
             <ChartContainer config={stackedConfig} className="min-h-[300px] w-full">
               <BarChart data={stackedChartData}>
                 <CartesianGrid vertical={false} />
@@ -374,9 +374,9 @@ export default function AnalyticsPage() {
                 />
                 <YAxis tickLine={false} axisLine={false} />
                 <ChartTooltip content={<ChartTooltipContent />} />
-                <Bar dataKey="resolved" stackId="a" fill="#22c55e" radius={[0, 0, 0, 0]} />
-                <Bar dataKey="unresolved" stackId="a" fill="#3b82f6" radius={[0, 0, 0, 0]} />
-                <Bar dataKey="escalated" stackId="a" fill="#ef4444" radius={[4, 4, 0, 0]} />
+                <Bar dataKey="resolved" stackId="a" fill="#22c55e" radius={[0, 0, 0, 0]} barSize={60} />
+                <Bar dataKey="unresolved" stackId="a" fill="#3b82f6" radius={[0, 0, 0, 0]} barSize={60} />
+                <Bar dataKey="escalated" stackId="a" fill="#ef4444" radius={[4, 4, 0, 0]} barSize={60} />
                 <ChartLegend content={<ChartLegendContent />} className="-translate-y-2" />
               </BarChart>
             </ChartContainer>
