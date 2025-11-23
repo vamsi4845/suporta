@@ -101,7 +101,7 @@ export const FilesView = () => {
                 onDeleted={handleFileDeleted}
             />
             <div className="flex h-full flex-col bg-background">
-                <header className="flex items-center gap-2 border-b bg-background px-4 py-3">
+                <header className="flex items-center gap-2 border-b bg-background px-4 py-2">
                     <ToggleSidebar />
                     <h1 className="text-lg font-semibold">Data Sources</h1>
                 </header>

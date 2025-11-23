@@ -25,7 +25,7 @@ export function IntegrationsInstructions() {
     const updatedScript = `<script src="https://ai-support-bot-widget-beta.vercel.app/widget.js" data-organization-id="${organization?.id}"></script>`;
     return (
         <div className="flex min-h-screen flex-col bg-muted">
-             <header className="flex items-center gap-2 border-b bg-background px-4 py-3">
+             <header className="flex items-center gap-2 border-b bg-background px-4 py-2">
                 <ToggleSidebar />
                 <h1 className="text-lg font-semibold">Integrations</h1>
             </header>
