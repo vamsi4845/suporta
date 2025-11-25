@@ -4,12 +4,12 @@ AI support that works for your team & customers.
 
 Drop your knowledge base, install the widget, and start taking conversations in minutes.
 
-## 🚀 Live Demo
+## Live Demo
 
 - **Website**: [https://suporta.vamsi.app/](https://suporta.vamsi.app/)
 - **Demo Video**: [Watch Demo](https://dar5y10gv8dj8.cloudfront.net/suporta/Suporta-Final-Demo.mp4)
 
-## ✨ Features
+## Features
 
 ### Core Workflow
 
@@ -29,7 +29,7 @@ Drop your knowledge base, install the widget, and start taking conversations in 
 
 - **Conversation analytics** - Track resolution rates, escalation patterns, and customer satisfaction with detailed conversation insights.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 This is a Next.js monorepo built with:
 
@@ -38,19 +38,19 @@ This is a Next.js monorepo built with:
 - **Styling**: Tailwind CSS
 - **TypeScript**: Full type safety
 
-## 📦 Installation
+## Installation
 
 ```bash
 pnpm install
 ```
 
-## 🏃 Development
+## Development
 
 ```bash
 pnpm dev
 ```
 
-## 📚 Adding Components
+## Adding Components
 
 To add shadcn/ui components to your app, run the following command at the root of your `web` app:
 
@@ -60,7 +60,7 @@ pnpm dlx shadcn@latest add button -c apps/web
 
 This will place the UI components in the `packages/ui/src/components` directory.
 
-## 🎨 Using Components
+## Using Components
 
 To use components in your app, import them from the `ui` package:
 
@@ -68,12 +68,12 @@ To use components in your app, import them from the `ui` package:
 import { Button } from "@workspace/ui/components/button"
 ```
 
-## 📝 Project Structure
+## Project Structure
 
 - `apps/web` - Main Next.js application
 - `packages/ui` - Shared UI components (shadcn/ui)
 
-## 🔗 Links
+## Links
 
 - [Live Site](https://suporta.vamsi.app/)
 - [Demo Video](https://dar5y10gv8dj8.cloudfront.net/suporta/Suporta-Final-Demo.mp4)
