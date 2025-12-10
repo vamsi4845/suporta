@@ -36,12 +36,13 @@ This is a Next.js monorepo built with Turborepo and pnpm workspaces:
 
 ### Backend
 - **Database & Backend**: Convex (real-time database and serverless functions)
-- **AI/LLM**: Convex Agent + RAG (Retrieval Augmented Generation) with OpenAI
+- **AI/LLM**: Vercel AI SDK + Convex Agent + RAG (Retrieval Augmented Generation) with OpenAI
 - **Authentication**: Clerk (multi-organization support)
 
 ### Infrastructure & Tools
 - **Monorepo**: Turborepo
 - **Package Manager**: pnpm
+- **Build Tool**: Vite (for embed script builder)
 - **Error Tracking**: Sentry
 - **Analytics**: Vercel Analytics
 - **Form Handling**: React Hook Form + Zod validation
