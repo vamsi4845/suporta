@@ -4,11 +4,6 @@ AI support that works for your team & customers.
 
 Drop your knowledge base, install the widget, and start taking conversations in minutes.
 
-## Live Demo
-
-- **Website**: [https://suporta.vamsi.app/](https://suporta.vamsi.app/)
-- **Demo Video**: [Watch Demo](https://dar5y10gv8dj8.cloudfront.net/suporta/Suporta-Final-Demo.mp4)
-
 ## Features
 
 ### Core Workflow
