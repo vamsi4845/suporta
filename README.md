@@ -26,12 +26,33 @@ Drop your knowledge base, install the widget, and start taking conversations in 
 
 ## Tech Stack
 
-This is a Next.js monorepo built with:
+This is a Next.js monorepo built with Turborepo and pnpm workspaces:
 
-- **Framework**: Next.js (App Router)
-- **UI Components**: shadcn/ui
+### Frontend
+- **Framework**: Next.js 15 (App Router) with React 19
+- **UI Components**: shadcn/ui + Radix UI
 - **Styling**: Tailwind CSS
 - **TypeScript**: Full type safety
+
+### Backend
+- **Database & Backend**: Convex (real-time database and serverless functions)
+- **AI/LLM**: Convex Agent + RAG (Retrieval Augmented Generation) with OpenAI
+- **Authentication**: Clerk (multi-organization support)
+
+### Infrastructure & Tools
+- **Monorepo**: Turborepo
+- **Package Manager**: pnpm
+- **Error Tracking**: Sentry
+- **Analytics**: Vercel Analytics
+- **Form Handling**: React Hook Form + Zod validation
+
+## Prerequisites
+
+- Node.js >= 20
+- pnpm >= 10.4.1
+- Convex account and project
+- Clerk account and application
+- OpenAI API key
 
 ## Installation
 
@@ -39,10 +60,67 @@ This is a Next.js monorepo built with:
 pnpm install
 ```
 
+## Environment Setup
+
+### Web App (`apps/web`)
+
+Create a `.env.local` file with:
+
+```env
+NEXT_PUBLIC_CONVEX_URL=your_convex_url
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+CLERK_SECRET_KEY=your_clerk_secret_key
+```
+
+### Widget App (`apps/widget`)
+
+Create a `.env.local` file with:
+
+```env
+NEXT_PUBLIC_CONVEX_URL=your_convex_url
+```
+
+### Backend (`packages/backend`)
+
+Configure Convex environment variables:
+
+```env
+CLERK_JWT_ISSUER_DOMAIN=your_clerk_jwt_issuer_domain
+OPENAI_API_KEY=your_openai_api_key
+```
+
 ## Development
+
+Start all apps in development mode:
 
 ```bash
 pnpm dev
+```
+
+This will start:
+- Web app on `http://localhost:3000`
+- Widget app on `http://localhost:3001`
+- Embed builder on `http://localhost:3002`
+
+### Running Individual Apps
+
+```bash
+# Web app only
+cd apps/web && pnpm dev
+
+# Widget app only
+cd apps/widget && pnpm dev
+
+# Backend (Convex) only
+cd packages/backend && pnpm dev
+```
+
+## Building
+
+Build all apps:
+
+```bash
+pnpm build
 ```
 
 ## Adding Components
@@ -65,8 +143,32 @@ import { Button } from "@workspace/ui/components/button"
 
 ## Project Structure
 
-- `apps/web` - Main Next.js application
-- `packages/ui` - Shared UI components (shadcn/ui)
+```
+├── apps/
+│   ├── web/              # Main Next.js dashboard application
+│   ├── widget/           # Widget app for embedding on customer sites
+│   └── embed/            # Embed script builder (Vite)
+├── packages/
+│   ├── backend/          # Convex backend (database, functions, AI)
+│   ├── ui/               # Shared UI components (shadcn/ui)
+│   ├── eslint-config/    # Shared ESLint configuration
+│   └── typescript-config/# Shared TypeScript configuration
+```
+
+### Key Directories
+
+- `apps/web/app/` - Next.js App Router pages and layouts
+- `apps/web/modules/` - Feature modules (auth, dashboard, inbox, etc.)
+- `packages/backend/convex/` - Convex functions and schema
+- `packages/ui/src/components/` - Reusable UI components
+
+## Architecture
+
+- **Monorepo**: Managed with Turborepo for efficient builds and caching
+- **Real-time**: Convex provides real-time subscriptions for conversations and data
+- **AI Integration**: Uses Convex Agent with RAG for intelligent responses from knowledge base
+- **Multi-tenancy**: Clerk organizations for team management
+- **Widget System**: Embeddable widget that can be customized per organization
 
 ## Links
 
