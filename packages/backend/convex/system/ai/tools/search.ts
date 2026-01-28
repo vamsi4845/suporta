@@ -9,9 +9,9 @@ import { SEARCH_INTERPRETER_PROMPT } from "../constants";
 
 
 export const search = createTool({
-    description:"Search the knowledge base for relevant information to help answer user questions",
+    description: "ALWAYS use this tool FIRST when answering ANY question about products, services, features, documentation, or any factual information. This searches the knowledge base for relevant information. You MUST call this tool before answering questions - do not try to answer from memory.",
     args:z.object({
-        query:z.string().describe("The search query to find relevant information")
+        query: z.string().describe("The search query to find relevant information. Use the user's exact question or rephrase it as a search query.")
     }),
     handler:async(ctx,args)=>{
         if(!ctx.threadId) return "Missing Thread Id"
@@ -25,14 +25,14 @@ export const search = createTool({
             return "Conversation not found"
         }
 
-        const orgId =  conversation.organizationId;
+        const orgId = conversation.organizationId;
 
         const searchResult = await rag.search(ctx,{
             namespace:orgId,
             query:args.query,
             limit:5,
         })
-
+        console.log("search results", searchResult);
         const contextText = `Found results in ${searchResult.entries
             .map((e)=>e.title || null)
             .filter((t)=>t !== null)

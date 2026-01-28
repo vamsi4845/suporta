@@ -40,12 +40,13 @@ export const create = action({
       contactSessionId:args.contactSessionId
     })
     const shouldTriggerAgent = conversation.status === "unresolved";
-    if(shouldTriggerAgent) {
+    if (shouldTriggerAgent) {
       await supportAgent.generateText(ctx, {threadId: args.threadId},{prompt: args.prompt,tools: {
         resolveConversationTool:resolveConversation,
          escalateConversationTool:escalateConversation,
          searchTool:search
-        }},);
+      }
+      });
     } else {
       await saveMessage(ctx, components.agent, {
         threadId: args.threadId,
