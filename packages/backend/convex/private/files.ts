@@ -143,6 +143,72 @@ export const addFile = action({
   },
 });
 
+export const addText = action({
+  args: {
+    title: v.string(),
+    content: v.string(),
+    category: v.optional(v.string()),
+  },
+  handler: async (ctx, args) => {
+    const identity = await ctx.auth.getUserIdentity();
+    if (!identity) {
+      throw new ConvexError({
+        code: "UNAUTHORIZED",
+        message: "Unauthorized",
+      });
+    }
+    const orgId = identity.orgId as string;
+    if (!orgId) {
+      throw new ConvexError({
+        code: "UNAUTHORIZED",
+        message: "Organization not found",
+      });
+    }
+
+    const title = args.title.trim();
+    const content = args.content.trim();
+
+    if (!title || !content) {
+      throw new ConvexError({
+        code: "BAD_REQUEST",
+        message: "Title and content are required",
+      });
+    }
+
+    const filename = title.toLowerCase().endsWith(".txt")
+      ? title
+      : `${title}.txt`;
+
+    const bytes = new TextEncoder().encode(content);
+    const blob = new Blob([bytes], { type: "text/plain" });
+    const storageId = await ctx.storage.store(blob);
+
+    const { entryId, created } = await rag.add(ctx, {
+      namespace: orgId,
+      text: content,
+      key: filename,
+      title: filename,
+      metadata: {
+        storageId,
+        uploadedBy: orgId,
+        filename,
+        category: args.category ?? null,
+        sourceType: "text",
+      } as EntryMetadata,
+      contentHash: await contentHashFromArrayBuffer(
+        bytes.buffer as ArrayBuffer
+      ),
+    });
+
+    if (!created) {
+      console.debug("entry already exists");
+      await ctx.storage.delete(storageId);
+    }
+
+    return { entryId, created };
+  },
+});
+
 export const scrapeWebsite = action({
   args: {
     url: v.string(),
@@ -238,6 +304,7 @@ type EntryMetadata = {
   category: string | null;
   sourceUrl?: string;
   scrapedAt?: number;
+  sourceType?: "text";
 };
 
 function formatFileSize(bytes: number): string {
