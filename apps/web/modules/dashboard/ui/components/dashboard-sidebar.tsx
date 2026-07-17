@@ -1,29 +1,34 @@
 "use client"
 
 import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
-import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarRail } from "@workspace/ui/components/sidebar";
+import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarRail } from "@workspace/ui/components/sidebar";
 import { cn } from "@workspace/ui/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { CommandMenu } from "./command-menu";
 
+interface NavItem {
+    title: string;
+    url: string;
+    icon: string;
+}
 
-const navItems =[
+const navItems: NavItem[] = [
     {
         title: "Inbox",
         url: "/inbox",
-        icon: "/msgs.svg"
+        icon: "/msgs.svg",
     },
     {
         title: "Content",
         url: "/content",
-        icon: "/book-open.svg"
+        icon: "/book-open.svg",
     },
     {
         title: "Integrations",
         url: "/integrations",
-        icon:"/code-editor.svg"
+        icon: "/code-editor.svg",
     },
     {
         title: "Customization",
@@ -50,10 +55,10 @@ export function DashboardSidebar(){
                 <SidebarMenu>
                     <SidebarMenuItem>
                         <SidebarMenuButton asChild size="lg">
-                        <div className="flex items-center gap-2 py-1">
-                            <Image src="/logo.svg" alt="logo" width={32} height={32}/>
-                            <h2 className="text-2xl font-bold">Suporta</h2>
-                        </div>
+                        <Link href="/inbox" className="flex items-center gap-2.5 py-1">
+                            <Image src="/logo.svg" alt="logo" width={28} height={28} className="shrink-0"/>
+                            <span className="text-lg font-semibold tracking-tight group-data-[collapsible=icon]:hidden">Suporta</span>
+                        </Link>
                         </SidebarMenuButton>
                     </SidebarMenuItem>
                 </SidebarMenu>
@@ -67,29 +72,53 @@ export function DashboardSidebar(){
                     </SidebarGroupContent>
                 </SidebarGroup>
                 <SidebarGroup>
+                    <SidebarGroupLabel>Workspace</SidebarGroupLabel>
                     <SidebarGroupContent>
                         <SidebarMenu>
-                            {navItems?.map((item) => (
-                                <SidebarMenuItem key={item.title}>
-                                    <SidebarMenuButton asChild  tooltip={item.title} isActive={isActive(item.url)} className={cn(isActive(item.url) && "bg-background border border-sidebar-border text-background rounded-xl")}>
-                                        <Link href={item.url}>
-                                            <Image src={item.icon} alt={item.title} width={24} height={24}/>
-                                            <span className="text-md font-medium">{item.title}</span>
-                                        </Link>
-                                    </SidebarMenuButton>
-                                </SidebarMenuItem>
-                            ))}
+                            {navItems.map((item) => {
+                                const active = isActive(item.url);
+                                return (
+                                    <SidebarMenuItem key={item.title}>
+                                        <SidebarMenuButton
+                                            asChild
+                                            tooltip={item.title}
+                                            isActive={active}
+                                            className={cn(
+                                                "rounded-lg text-sidebar-foreground/70 transition-colors",
+                                                active && "bg-sidebar-accent text-sidebar-accent-foreground shadow-xs border border-sidebar-border font-medium"
+                                            )}
+                                        >
+                                            <Link href={item.url}>
+                                                <Image src={item.icon} alt={item.title} width={20} height={20} className="shrink-0"/>
+                                                <span className="text-sm">{item.title}</span>
+                                            </Link>
+                                        </SidebarMenuButton>
+                                    </SidebarMenuItem>
+                                );
+                            })}
                         </SidebarMenu>
                     </SidebarGroupContent>
                 </SidebarGroup>
             </SidebarContent>
             <SidebarFooter>
                 <SidebarMenu>
+                    <SidebarMenuItem className="group-data-[collapsible=icon]:hidden">
+                        <OrganizationSwitcher
+                            hidePersonal
+                            appearance={{
+                                elements: {
+                                    rootBox: "w-full!",
+                                    organizationSwitcherTrigger:
+                                        "w-full! justify-start! rounded-lg! p-2! text-sidebar-foreground! hover:bg-sidebar-accent! hover:text-sidebar-accent-foreground!",
+                                },
+                            }}
+                        />
+                    </SidebarMenuItem>
                     <SidebarMenuItem>
                         <UserButton showName appearance={{
                             elements:{
                                 rootBox:"w-full! h-8!",
-                                userButtonTrigger:"w-full! p-2! hover:bg-sidebar-accent! hover:text-sidebar-accent-foreground! group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2!",
+                                userButtonTrigger:"w-full! p-2! rounded-lg! hover:bg-sidebar-accent! hover:text-sidebar-accent-foreground! group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2!",
                                 userButtonBox:"w-full! flex-row-reverse! justify-end! gap-2! group-data[collapsible=icon]:justify-center! text-sidebar-foreground!",
                                 userButtonOuterIdentifier:"pl-0! group-data-[collapsible=icon]:hidden!",
                                 avatarBox:"size-4!"

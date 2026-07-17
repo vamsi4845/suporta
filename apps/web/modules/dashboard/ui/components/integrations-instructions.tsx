@@ -29,11 +29,11 @@ export function IntegrationsInstructions() {
                 <ToggleSidebar />
                 <h1 className="text-lg font-semibold">Integrations</h1>
             </header>
-            <div className=" m-auto w-full max-w-sm md:max-w-xl bg-white rounded-xl p-4 md:p-8 shadow-lg  border border-border">
+            <div className=" m-auto w-full max-w-sm md:max-w-xl bg-card rounded-xl p-4 md:p-8 shadow-lg  border border-border">
                 <div className="space-y-2">
-                    <h1 className="text-2xl md:text-4xl">Integrations</h1>
+                    <h1 className="text-2xl md:text-3xl font-semibold tracking-tight">Install the widget</h1>
                     <p className="text-muted-foreground">
-                        Connect your tools and services to your AI assistant
+                        Get the Suporta widget running on your website in under a minute
                     </p>
                 </div>
                 <div className="mt-8 space-y-6">
@@ -49,12 +49,6 @@ export function IntegrationsInstructions() {
                         <div className="space-y-6 overflow-x-hidden">
                         <div className="space-y-4">
                             <div className="space-y-1">
-                        <h2 className="text-2xl">Install the widget</h2>
-                        <p className="text-sm text-muted-foreground">
-                            Get the Suporta widget running on your website in under a minute.
-                        </p>
-                            </div>
-                            <div className="space-y-1">
                                 <div className="flex items-center gap-2">
                                     <Image src="/code.svg" alt="code" width={20} height={20} />
                                     <h3 className="text-base font-semibold">Widget Integration</h3>
@@ -62,14 +56,14 @@ export function IntegrationsInstructions() {
                                 <p className="text-sm text-muted-foreground">
                                     Add this single line in head section of your HTML file.
                                 </p>
-                                <div className="group relative w-full bg-white border border-border rounded-md">
+                                <div className="group relative w-full bg-muted/50 border border-border rounded-md">
                                     <div className="rounded-md p-3 text-sm font-mono overflow-hidden">
                                         <code className="block truncate max-w-[95%]">{updatedScript}</code>
                                     </div>
                                     <Button 
                                         variant="ghost" 
                                         size="icon"
-                                        className="absolute top-2 right-2 h-8 w-8 hover:!bg-white"
+                                        className="absolute top-2 right-2 h-8 w-8"
                                         onClick={() => handleCopy(updatedScript)}
                                     >
                                         {copiedSection ? (

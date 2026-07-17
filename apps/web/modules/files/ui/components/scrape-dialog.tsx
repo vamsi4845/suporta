@@ -84,7 +84,10 @@ export const ScrapeDialog = ({
         </DialogHeader>
         <div className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="category">Category</Label>
+            <Label htmlFor="category">
+              Category{" "}
+              <span className="text-muted-foreground text-xs">(optional)</span>
+            </Label>
             <Input
               id="category"
               type="text"
@@ -121,9 +124,7 @@ export const ScrapeDialog = ({
             Cancel
           </Button>
           <Button
-            disabled={
-              !url.trim() || !isValidUrl(url) || isScraping || !category.trim()
-            }
+            disabled={!url.trim() || !isValidUrl(url) || isScraping}
             onClick={handleScrape}
           >
             {isScraping ? (
