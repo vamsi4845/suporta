@@ -62,12 +62,14 @@ export const UploadDialog = ({
                 bytes:await blob.arrayBuffer(),
                 filename,
                 mimeType:blob.type || "text/plain",
-                category:uploadForm.category
+                category:uploadForm.category.trim() || undefined
             })
+            toast.success("File added to knowledge base");
             onFileUploaded?.();
             handleCancel();
         }catch(error){
-            console.error(error)
+            console.error(error);
+            toast.error("Failed to upload file. Please try again.");
         }finally{
             setIsUploading(false);
         }
@@ -97,13 +99,14 @@ export const UploadDialog = ({
                 <div className="space-y-4">
                         <div className="space-y-2">
                             <Label htmlFor="category">
-                                Category
+                                Category {" "}
+                                <span className="text-muted-foreground text-xs">(optional)</span>
                             </Label>
                             <Input id="category" onChange={(e)=>setUploadForm((prev)=>({
                                 ...prev,
                                 category:e.target.value,
                             }))}
-                            placeholder="e.g., Documentation,Support, Product"
+                            placeholder="e.g., Documentation, Support, Product"
                             type="text"
                             value={uploadForm.category}
                             />
@@ -113,11 +116,11 @@ export const UploadDialog = ({
                                 Filename {" "}
                                 <span className="text-muted-foreground text-xs">(optional)</span>
                             </Label>
-                            <Input id="category" onChange={(e)=>setUploadForm((prev)=>({
+                            <Input id="filename" onChange={(e)=>setUploadForm((prev)=>({
                                 ...prev,
-                                category:e.target.value,
+                                filename:e.target.value,
                             }))}
-                            placeholder="Edit File name"
+                            placeholder="Edit file name"
                             type="text"
                             value={uploadForm.filename}
                             />
@@ -125,7 +128,13 @@ export const UploadDialog = ({
                         <Dropzone accept={{
                             "application/pdf":[".pdf"],
                             "text/csv":[".csv"],
-                            "text/plain":[".txt"]
+                            "text/plain":[".txt"],
+                            "text/markdown":[".md"],
+                            "text/html":[".html"],
+                            "application/json":[".json"],
+                            "image/jpeg":[".jpg",".jpeg"],
+                            "image/png":[".png"],
+                            "image/webp":[".webp"],
                             }}
                             disabled={isUploading}
                             maxFiles={1}
@@ -140,7 +149,7 @@ export const UploadDialog = ({
                     <Button disabled={isUploading} onClick={handleCancel} variant={"outline"}>
                         Cancel
                     </Button>
-                    <Button disabled={uploadedFiles.length === 0 || isUploading || !uploadForm.category } onClick={handleUpload}>
+                    <Button disabled={uploadedFiles.length === 0 || isUploading} onClick={handleUpload}>
                             {isUploading ? "Uploading...":"Upload"}
                     </Button>
                 </DialogFooter>

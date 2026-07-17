@@ -1,6 +1,6 @@
 "use client"
 
-import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
+import { UserButton } from "@clerk/nextjs";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarRail } from "@workspace/ui/components/sidebar";
 import { cn } from "@workspace/ui/lib/utils";
 import Image from "next/image";
@@ -71,7 +71,7 @@ export function DashboardSidebar(){
                         <SidebarMenu>
                             {navItems?.map((item) => (
                                 <SidebarMenuItem key={item.title}>
-                                    <SidebarMenuButton asChild  tooltip={item.title} isActive={isActive(item.url)} className={cn(isActive(item.url) && "bg-background border border-sidebar-border text-background rounded-xl")}>
+                                    <SidebarMenuButton asChild  tooltip={item.title} isActive={isActive(item.url)} className={cn(isActive(item.url) && "bg-background border border-sidebar-border rounded-xl")}>
                                         <Link href={item.url}>
                                             <Image src={item.icon} alt={item.title} width={24} height={24}/>
                                             <span className="text-md font-medium">{item.title}</span>

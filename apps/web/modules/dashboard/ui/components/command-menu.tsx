@@ -48,7 +48,7 @@ const NAVIGATION_LINKS: CommandLinkItem[] = [
     title: "Content",
     href: "/content",
     iconImage: "/book-open.svg",
-    keywords: ["files", "documents", "knowledge", "docs"],
+    keywords: ["files", "documents", "knowledge", "docs", "text", "sources"],
   },
   {
     title: "Integrations",
